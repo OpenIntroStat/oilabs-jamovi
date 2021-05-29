@@ -1,4 +1,4 @@
-OpenIntro Labs - tidyverse
+OpenIntro Labs - jamovi
 ==============
 
 OpenIntro Labs promote the understanding and application of statistics through 
@@ -7,9 +7,8 @@ particular chapters in all three versions of OpenIntro Statistics, a free and
 open-source textbook. The textbook as well as the html version of the labs can
 be found at [http://www.openintro.org/stat/labs.php](http://www.openintro.org/stat/labs.php).
 
-This repository is a fork of the original base-R labs. It incorporates 
-the tidyverse syntax from the `dplyr` package for data manipulation, the `ggplot2` 
-package for graphics, and the `infer` package for statistical inference.
+This repository is a fork of [oilabs-tidy](https://github.com/OpenIntroStat/oilabs-tidy). 
+It uses [jamovi](https://www.jamovi.org/). [TO DO: ADD ANOTHER SENTENCE ABOUT JAMOVI]
 
 We currently support our source files in the RMarkdown (.Rmd) format, which can be output into
 html format (though output to pdf is also possible). The source files are processed
@@ -20,6 +19,8 @@ statistics.  If you end up developing some interesting variants of these labs or
 creating new ones, please let us know!
 
 ## Labs
+
+[TO DO: UPDATE LINKS]
 
 1. [Intro to R](http://openintrostat.github.io/oilabs-tidy/01_intro_to_r/intro_to_r.html)
 2. [Intro to data](http://openintrostat.github.io/oilabs-tidy/02_intro_to_data/intro_to_data.html)
