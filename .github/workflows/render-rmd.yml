@@ -16,7 +16,7 @@ jobs:
           remotes::install_cran(c("rmarkdown", "tidyverse", "openintro", "infer", "statsr", "GGally", "skimr"))
         shell: Rscript {0}
       - name: Render Lab 01
-        run: Rscript -e 'rmarkdown::render("01_intro_to_r/intro_to_r.Rmd")'
+        run: Rscript -e 'rmarkdown::render("01_intro_to_jamovi/intro_to_jamovi.Rmd")'
       - name: Render Lab 02
         run: Rscript -e 'rmarkdown::render("02_intro_to_data/intro_to_data.Rmd")'
       - name: Render Lab 03
