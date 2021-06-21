@@ -48,6 +48,9 @@ This normal curve should have the same mean and standard deviation as the data.
 
 You'll be focusing on calories from fat from Dairy Queen products, so let's first filter out everything except for those products.
 
+
+<!-- can't do in jamovi
+
 Open the `Distributions` menu and select `Normal` in the continuous section. We want to work with our actual data, so click `Generate and Display Data` to show those options. Move `cal_fat` into the `Get variable from data set` box so that we can inspect it further.
 
 Next we want to compare this to the normal distribution, so open the `Assess Fit` section of this same page. Check the box `Histogram vs. theoreitcal pdf` to overlay a density histogram with a normal distribution with the same mean and standard deviation.
@@ -58,14 +61,14 @@ Using a density histogram allows us to properly overlay a normal distribution cu
 Frequency and density histograms both display the same exact shape; they only differ in their y-axis.
 You can verify this by creating a frequency histogram of the same variable in the `Descriptives` menu. 
 
-2.  Based on the this plot, does it appear that the data follow a nearly normal distribution?
+2.  Based on the this plot, does it appear that the data follow a nearly normal distribution? -->
 
 ## Evaluating the normal distribution
 
 Eyeballing the shape of the histogram is one way to determine if the data appear to be nearly normally distributed, but it can be frustrating to decide just how close the histogram is to the curve.
 An alternative approach involves constructing a normal probability plot, also called a normal Q-Q plot for "quantile-quantile".
 
-Again within the `Assess Fit` section, check the `Q-Q plot` box to have JASP generate the Q-Q plot for this data.
+Again within the `Exploration` section, open the `plots` menu and check the `Q-Q` box to have Jamovi generate the Q-Q plot for this data.
 
 The x-axis values correspond to the quantiles of a theoretically normal curve with mean 0 and standard deviation 1 (i.e., the standard normal distribution).
 The y-axis values correspond to the quantiles of the original unstandardized sample data.
