@@ -20,28 +20,17 @@ If you have access to only a sample of the population, as is often the case, the
 What is your best guess for this proportion if you only have data from a small sample of adults?
 This type of situation requires that you use your sample to make inference on what your population looks like.
 
-::: {#boxedtext}
-**Setting a seed:** You will take random samples and build sampling distributions in this lab, which means you should set a seed on top of your lab.
-If this concept is new to you, review the lab on probability.
-:::
-
 ## Getting Started
 
-### Load packages
-
-In this lab, we will explore and visualize the data using the **tidyverse** suite of packages, and perform statistical inference using **infer**.
-
-Let's load the packages.
-
-```{r load-packages, message=FALSE}
+```{r, include=FALSE}
 library(tidyverse)
 library(openintro)
 library(infer)
+
+us_adults <- tibble(
+  climate_change_affects = c(rep("Yes", 62000), rep("No", 38000))
+)
 ```
-
-### Creating a reproducible lab report
-
-To create your new lab report, in RStudio, go to New File -\> R Markdown... Then, choose From Template and then choose `Lab Report for OpenIntro Statistics Labs` from the list of templates.
 
 ### The data
 
@@ -57,41 +46,13 @@ In this lab, you will assume this 62% is a true population proportion and learn 
 We will first create our population assuming a population size of 100,000.
 This means 62,000 (62%) of the adult population think climate change impacts their community, and the remaining 38,000 does not think so.
 
-```{r}
-us_adults <- tibble(
-  climate_change_affects = c(rep("Yes", 62000), rep("No", 38000))
-)
-```
+The name of the data frame is `us_adults` and the name of the variable that contains responses to the question *"Do you think climate change is affecting your local community?"* is `climate_change_affects`. The file can be found [here](more/us_adults.csv).
 
-The name of the data frame is `us_adults` and the name of the variable that contains responses to the question *"Do you think climate change is affecting your local community?"* is `climate_change_affects`.
+We can quickly visualize the distribution of these responses using a bar plot. Do this using the `Exploration` menu.
 
-We can quickly visualize the distribution of these responses using a bar plot.
+We can also obtain summary statistics to confirm we constructed the data frame correctly, using the `Frequency tables` in `Descriptives`.
 
-```{r bar-plot-pop, fig.height=2.5, fig.width=10}
-ggplot(us_adults, aes(x = climate_change_affects)) +
-  geom_bar() +
-  labs(
-    x = "", y = "",
-    title = "Do you think climate change is affecting your local community?"
-  ) +
-  coord_flip() 
-```
-
-We can also obtain summary statistics to confirm we constructed the data frame correctly.
-
-```{r summ-stat-pop, results = TRUE}
-us_adults %>%
-  count(climate_change_affects) %>%
-  mutate(p = n /sum(n))
-```
-
-In this lab, you'll start with a simple random sample of size 60 from the population.
-
-```{r sample}
-n <- 60
-samp <- us_adults %>%
-  sample_n(size = n)
-```
+In this lab, you'll start with a simple random sample of size 60 from the population. As in the last lab, we will use `SAMPLE` function. Create a new computed variable, using the formula `SAMPLE(climate_change_affects,60)`, and name this `samp`.
 
 1.  What percent of the adults in your sample think climate change affects their local community?
     **Hint:** Just like we did with the population, we can calculate the proportion of those **in this sample** who think climate change affects their local community.
@@ -103,7 +64,7 @@ samp <- us_adults %>%
 ## Confidence intervals
 
 Return for a moment to the question that first motivated this lab: based on this sample, what can you infer about the population?
-With just one sample, the best estimate of the proportion of US adults who think climate change affects their local community would be the sample proportion, usually denoted as $\hat{p}$ (here we are calling it `p_hat`).
+With just one sample, the best estimate of the proportion of US adults who think climate change affects their local community would be the sample proportion, usually denoted as $\hat{p}$.
 That serves as a good **point estimate**, but it would be useful to also communicate how uncertain you are of that estimate.
 This uncertainty can be quantified using a **confidence interval**.
 
@@ -121,42 +82,15 @@ The bootstrapping scheme is as follows:
 -   **Step 1.** Take a bootstrap sample - a random sample taken **with replacement** from the original sample, of the same size as the original sample.
 -   **Step 2.** Calculate the bootstrap statistic - a statistic such as mean, median, proportion, slope, etc. computed on the bootstrap samples.
 -   **Step 3.** Repeat steps (1) and (2) many times to create a bootstrap distribution - a distribution of bootstrap statistics.
--   **Step 4.** Calculate the bounds of the XX% confidence interval as the middle XX% j knof the bootstrap distribution.
+-   **Step 4.** Calculate the bounds of the XX% confidence interval as the middle XX% of the bootstrap distribution.
 
-Instead of coding up each of these steps, we will construct confidence intervals using the **infer** package.
+This process will find the 95 percent confidence interval for proportion of US adults who think climate change affects their local community.
 
-Below is an overview of the functions we will use to construct this confidence interval:
+This has been done 1000 times, and the results are [here](more/sample_props60.csv). Open this data and take a look. The value for $\hat{p}$ is determined for each sample. 
 
-+-------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| Function    | Purpose                                                                                                                                    |
-+=============+============================================================================================================================================+
-| `specify`   | Identify your variable of interest                                                                                                         |
-+-------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `generate`  | The number of samples you want to generate                                                                                                 |
-+-------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `calculate` | The sample statistic you want to do inference with, or you can also think of this as the population parameter you want to do inference for |
-+-------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| `get_ci`    | Find the confidence interval                                                                                                               |
-+-------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+Now, open a descriptives analysis and plot a histogram of $\hat{p}$. Open the `Statistics` submenu, and check the `Percentiles` box. Since we want a 95% confidence interval, we want to cut at the 2.5 and 97.5 percentiles, so enter `2.5, 97.5` in the box. You will see these values show up in the descriptive statistics table to the right.
 
-This code will find the 95 percent confidence interval for proportion of US adults who think climate change affects their local community.
-
-```{r confidence interval infer}
-samp %>%
-  specify(response = climate_change_affects, success = "Yes") %>%
-  generate(reps = 1000, type = "bootstrap") %>%
-  calculate(stat = "prop") %>%
-  get_ci(level = 0.95)
-```
-
--   In `specify` we specify the `response` variable and the level of that variable we are calling a `success`.
--   In `generate` we provide the number of resamples we want from the population in the `reps` argument (this should be a reasonably large number) as well as the type of resampling we want to do, which is `"bootstrap"` in the case of constructing a confidence interval.
--   Then, we `calculate` the sample statistic of interest for each of these resamples, which is `prop`ortion.
-
-Feel free to test out the rest of the arguments for these functions, since these commands will be used together to calculate confidence intervals and solve inference problems for the rest of the semester.
-But we will also walk you through more examples in future chapters.
-
-To recap: even though we don't know what the full population looks like, we're 95% confident that the true proportion of US adults who think climate change affects their local community is between the two bounds reported as result of this pipeline.
+To recap: even though we don't know what the full population looks like, we're 95% confident that the true proportion of US adults who think climate change affects their local community is between the two bounds reported.
 
 ## Confidence levels
 
@@ -296,23 +230,23 @@ shinyApp(
 ## More Practice
 
 1.  Choose a different confidence level than 95%.
-    Would you expect a confidence interval at this level to me wider or narrower than the confidence interval you calculated at the 95% confidence level?
+    Would you expect a confidence interval at this level to be wider or narrower than the confidence interval you calculated at the 95% confidence level?
     Explain your reasoning.
 
-2.  Using code from the **infer** package and data fromt the one sample you have (`samp`), find a confidence interval for the proportion of US Adults who think climate change is affecting their local community with a confidence level of your choosing (other than 95%) and interpret it.
+2.  Using data from the one sample you have (`samp`), find a confidence interval for the proportion of US Adults who think climate change is affecting their local community with a confidence level of your choosing (other than 95%) and interpret it.
 
 3.  Using the app, calculate 50 confidence intervals at the confidence level you chose in the previous question, and plot all intervals on one plot, and calculate the proportion of intervals that include the true population proportion.
     How does this percentage compare to the confidence level selected for the intervals?
 
 4.  Lastly, try one more (different) confidence level.
     First, state how you expect the width of this interval to compare to previous ones you calculated.
-    Then, calculate the bounds of the interval using the **infer** package and data from `samp` and interpret it.
+    Then, calculate the bounds of the interval using jamovi and data from `samp` and interpret it.
     Finally, use the app to generate many intervals and calculate the proportion of intervals that are capture the true population proportion.
 
 5.  Using the app, experiment with different sample sizes and comment on how the widths of intervals change as sample size changes (increases and decreases).
 
 6.  Finally, given a sample size (say, 60), how does the width of the interval change as you increase the number of bootstrap samples.
-    **Hint:** Does changing the number of bootstap samples affect the standard error?
+    **Hint:** Does changing the number of bootstrap samples affect the standard error?
 
 ------------------------------------------------------------------------
 
