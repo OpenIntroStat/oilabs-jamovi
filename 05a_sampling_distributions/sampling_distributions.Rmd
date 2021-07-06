@@ -68,7 +68,7 @@ This means 20,000 (20%) of the population think the work scientists do does not 
 
 The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](global_monitor.csv). 
 
-We can quickly visualize the distribution of these responses using a bar plot. You can find this in the `Descriptives` menu, by clicking `Distribution plots` in under `Basic plots`.
+We can quickly visualize the distribution of these responses using a bar plot. You can find this in the `Exploration` menu, by clicking `Bar plot` in `Plots`.
 
 We can also obtain summary statistics to confirm we constructed the data frame correctly by checking the `Frequency tables` box. 
 
@@ -78,11 +78,15 @@ In this lab, you have access to the entire population, but this is rarely the ca
 Gathering information on an entire population is often extremely costly or impossible.
 Because of this, we often take a sample of the population and use that to understand the properties of the population.
 
-If you are interested in estimating the proportion of people who don't think the work scientists do benefits them, you can use the `distrACTION` tool to survey the population.
+If you are interested in estimating the proportion of people who don't think the work scientists do benefits them, you can use the sampling function in Jamovi to survey the population.
 
-Open the `Binomial` menu in the Discrete section. Since 20% of our population doesn't believe science benefits society, change the probability of success to 0.2. We are going to sample 50 people from the population, so change the number of trials to 50. (Note: We're not quite sampling *from* the population here - we're going to simulate 50 individuals, each of whom has a 20% chance of saying they don't think the work scientists do benefits them. If we actually sampled from the population, the chance of the second person making that statement would change ever so slightly based on the results from the first sample.)
+Open your data set, and add a new `COMPUTED VARIABLE`. Name this variable `samp1`, and it is defined by the function `SAMPLE(scientist_work, 50)`. You won't see any data show up in the data viewer, but you can get summaries and graphs of this new variable.  Create a frequency table of this new variable to see how many people responded in each way.
 
-Now open the `Generate and Display Data` submenu. Name our new variable `sample1` and change `number of samples to 1`, then click `Draw samples`. Go back to your data set, and you will see a single number in the `sample1` column. This is the number of people from our 50 who responded that science does not benefit society. Working with these 50 people is considerably simpler than working with all 100,000 people in the population.
+This command collects a simple random sample of size 50 from the global_monitor dataset, and assigns the result to `samp1`. This is similar to randomly drawing names from a hat that contains the names of all in the population. Working with these 50 names is considerably simpler than working with all 100,000 people in the population.
+
+<!--Open the `Binomial` menu in the Discrete section. Since 20% of our population doesn't believe science benefits society, change the probability of success to 0.2. We are going to sample 50 people from the population, so change the number of trials to 50. (Note: We're not quite sampling *from* the population here - we're going to simulate 50 individuals, each of whom has a 20% chance of saying they don't think the work scientists do benefits them. If we actually sampled from the population, the chance of the second person making that statement would change ever so slightly based on the results from the first sample.)
+
+Now open the `Generate and Display Data` submenu. Name our new variable `sample1` and change `number of samples to 1`, then click `Draw samples`. Go back to your data set, and you will see a single number in the `sample1` column. This is the number of people from our 50 who responded that science does not benefit society. Working with these 50 people is considerably simpler than working with all 100,000 people in the population.-->
 
 1.  Describe the distribution of responses in this sample. How does it compare to the distribution of responses in the population. **Hint:** What proportion of the sample does not believe science benefits society? What proportion of the population believes this? Be careful to not label your proportion `p` since you're now calculating a sample statistic, not a population parameters.
 
@@ -104,18 +108,11 @@ In general, though, the sample proportion turns out to be a pretty good estimate
 Not surprisingly, every time you take another random sample, you might get a different sample proportion.
 It's useful to get a sense of just how much variability you should expect when estimating the population mean this way.
 The distribution of sample proportions, called the *sampling distribution (of the proportion)*, can help you understand this variability.
-In this lab, because you have access to the population, you can build up the sampling distribution for the sample proportion by repeating the above steps many times.
-Here, we use Jamovi to take 15,000 different samples of size 50 from the population, calculate the proportion of responses in each sample, and store the results.
+In this lab, because you have access to the population, you could build up the sampling distribution for the sample proportion by repeating the above steps many times. By repeating this process 15,000 times, we generated 15,000 samples of size 50 from the population, calculate the proportion of responses in each sample, and store the results, and saved these results in the file [here](more/sample_props50.csv). Load this dataset to get a sense of what it tells us.
 
-Go back to the section of the Binomial menu where we generated the data. Create a new variable called `samples15000` and change the `Number of samples` to 15000 (but leave the other values as they were). Generate this variable, and go back to the dataset to see what has been created.
+We can now visualize the distribution of the proportions with a histogram. Create a histogram of the proportions in the `sample_props50` dataset.
 
-3. What does each value in the `samples15000` variable represent?
-
-Next we will convert these counts to proportions to better compare the values. Create a new variable called `prop15000` given by the formula `samples15000 / 50`.
-
-We can now visualize the distribution of these proportions with a histogram. Create a histogram of the newly created `prop15000` variable.
-
-1.  How many elements are there in `prop15000`? Describe the sampling distribution, and be sure to specifically note its center. Make sure to include a plot of the distribution in your answer.
+1.  How many elements are there in `sample_props50`? Describe the sampling distribution, and be sure to specifically note its center. Make sure to include a plot of the distribution in your answer.
 
 ## Interlude: Sampling distributions
 
@@ -127,7 +124,7 @@ Note that in practice one rarely gets to build true sampling distributions, beca
 
 Note that for each of the 15,000 times we computed a proportion, we did so from a **different** sample!
 
-1.  To make sure you understand how sampling distributions are built, and exactly what the process does, try modifying the code to create a sampling distribution of **25 sample proportions** from **samples of size 10**, and put them in a data frame named `sample_props_small`. Print the output. How many observations are there in this object called `sample_props_small`? What does each observation represent?
+1.  To make sure you understand how sampling distributions are built, and exactly what the process does, imagine modifying the process to create a sampling distribution of **25 sample proportions** from **samples of size 10**. How many observations are there in this object? What does each observation represent?
 
 ## Sample size and the sampling distribution
 
@@ -242,16 +239,15 @@ Now, you'll try to estimate the proportion of those who think it does.
 <!--Note that while you might be able to answer some of these questions using the app, you are expected to write the required code and produce the necessary plots and summary statistics.
 You are welcome to use the app for exploration.-->
 
-1.  Take a sample of size 15 from the population and calculate the proportion of people in this sample who think the work scientists do enhances their lives.
+1.  Using jamovi, take a sample of size 15 from the population and calculate the proportion of people in this sample who think the work scientists do enhances their lives.
     Using this sample, what is your best point estimate of the population proportion of people who think the work scientists do enhances their lives?
 
-2.  Since you have access to the population, simulate the sampling distribution of proportion of those who think the work scientists do enhances their lives for samples of size 15 by taking 2000 samples from the population of size 15 and computing 2000 sample proportions.
-    Store these proportions in as `sample_props15`.
+2.  Using the app, simulate the sampling distribution of proportion of those who think the work scientists do enhances their lives for samples of size 15 by taking 2000 samples from the population of size 15 and computing 2000 sample proportions.
     Plot the data, then describe the shape of this sampling distribution.
     Based on this sampling distribution, what would you guess the true proportion of those who think the work scientists do enhances their lives to be?
     Finally, calculate and report the population proportion.
 
-3.  Change your sample size from 15 to 150, then compute the sampling distribution using the same method as above, and store these proportions in a new object called `sample_props150`.
+3.  Change your sample size from 15 to 150, then compute the sampling distribution using the same method as above.
     Describe the shape of this sampling distribution and compare it to the sampling distribution for a sample size of 15.
     Based on this sampling distribution, what would you guess to be the true proportion of those who think the work scientists do enhances their lives?
 
