@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Jamovi"
+title: "Introduction to jamovi"
 output:
   html_document:
     css: ../lab.css
@@ -15,15 +15,15 @@ library(tidyverse)
 library(openintro)
 ```
 
-## The Jamovi Interface
+## The jamovi Interface
 
-The goal of this lab is to introduce you to Jamovi, which you'll be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
+The goal of this lab is to introduce you to jamovi, which you'll be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.
 
-As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better data analyst! Before we get to that stage, however, you need to build some basic fluency with Jamovi. First, we will explore the fundamental building blocks of Jamovi, reading in data, and basic commands for working with data in Jamovi.
+As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better data analyst! Before we get to that stage, however, you need to build some basic fluency with jamovi. First, we will explore the fundamental building blocks of jamovi, reading in data, and basic commands for working with data in jamovi.
 
-You can download Jamovi from https://www.jamovi.org/. Click `download` near the top of the screen, then select the version from the computer you are using.
+You can download jamovi from https://www.jamovi.org/. Click `download` near the top of the screen, then select the version from the computer you are using.
 
-Go ahead and launch Jamovi You should see a window that looks like the image shown below.
+Go ahead and launch jamovi You should see a window that looks like the image shown below.
 
 ```{r r-interface-2020, echo=FALSE, results="asis"}
 knitr::include_graphics("img/jamovi-interface-2021.png")
@@ -49,11 +49,11 @@ We can see that there are 82 observations and 3 variables in this dataset. The v
 
 When inspecting the data, you should see three columns of numbers and 82 rows. Each row represents a different year that Arbuthnot collected data. There is also a column to the left of the variables which shows a row number. The first variable is the year, and the second and thirds are the numbers of boys and girls baptized that year, respectively. Use the scrollbar on the right side of the window to examine the complete data set.
 
-Note that the row numbers are not part of Arbuthnot's data. Jamovi adds these row numbers as part of its printout to help you make visual comparisons. You can think of them as the index that you see on the left side of a spreadsheet. In fact, the comparison of the data to a spreadsheet will generally be helpful.
+Note that the row numbers are not part of Arbuthnot's data. jamovi adds these row numbers as part of its printout to help you make visual comparisons. You can think of them as the index that you see on the left side of a spreadsheet. In fact, the comparison of the data to a spreadsheet will generally be helpful.
 
 ### Types of Variables
 
-Just to the left of the name of each variable, you should see an icon of a ruler. If you double click the variable name, you will see options for the variable. This allows you to specify whether Jamovi should interpret the varaible as a continuous, ordinal, or nominal variable (or an ID). Jamovi will try to select the correct type when it loads the data. We will leave these variables as continuous. You can click the upward pointed arrow button to close this menu.
+Just to the left of the name of each variable, you should see an icon of a ruler. If you double click the variable name, you will see options for the variable. This allows you to specify whether jamovi should interpret the varaible as a continuous, ordinal, or nominal variable (or an ID). jamovi will try to select the correct type when it loads the data. We will leave these variables as continuous. You can click the upward pointed arrow button to close this menu.
 
 ## Some exploration
 
@@ -63,17 +63,17 @@ You will then see the results in the right hand side of the window. You should s
 
 1.  How many valid observations are there for the variables `girls`? Are any values missing?
 
-### Creating a Jamovi file
+### Creating a jamovi file
 
-Now that we have some analysis, we should save our file in case we want to come back to it. With Jamovi, you can save a `.omv` file which contains your data and all of your analysis, along with any descriptions you write in yourself. Open the menu, select `Save As` and you can save your first Jamovi file to your computer.
+Now that we have some analysis, we should save our file in case we want to come back to it. With jamovi, you can save a `.omv` file which contains your data and all of your analysis, along with any descriptions you write in yourself. Open the menu, select `Save As` and you can save your first jamovi file to your computer.
 
 ### Data visualization
 
-In order to create a scatterplot in Jamovi, we will add a module. This extends the capabilities of Jamovi. Click the plus button at the top right part of the screen, , select `jamovi library`, then click `INSTALL` in the first option, `scatr`. Click the up arrow to close this menu, then when you click `Exploration`, again, there will be new options. Click `Scatterplot` in the `Exploration` menu.
+In order to create a scatterplot in jamovi, we will add a module. This extends the capabilities of jamovi. Click the plus button at the top right part of the screen, , select `jamovi library`, then click `INSTALL` in the first option, `scatr`. Click the up arrow to close this menu, then when you click `Exploration`, again, there will be new options. Click `Scatterplot` in the `Exploration` menu.
 
 To create a simple plot of the number of girls baptized per year, we will start by selecting the variables we are interested in. Move the variable `year` to the `X-Axis` option and `girls` to the `Y-Axis` option (either by clicking and dragging or by using the arrow buttons). You will immediately see the scatterplot in the right panel.
 
-Jamovi allows for a number of features to be added to the scatter plot. We can turn on a density plot or a boxplot for each variable using the radio buttons below `Marginals`, or add regression lines using the radio buttons below `Regression Line`.
+jamovi allows for a number of features to be added to the scatter plot. We can turn on a density plot or a boxplot for each variable using the radio buttons below `Marginals`, or add regression lines using the radio buttons below `Regression Line`.
 
 Use the plot to address the following question:
 
@@ -105,7 +105,7 @@ You can also compute the proportion of newborns that are boys.
 
 1.  Now, generate a plot of the proportion of boys born over time. What do you see? Put your description of what you see in a note. 
 
-Finally, in addition to simple mathematical operators like subtraction and division, you can ask Jamovi to make comparisons like greater than, `>`, less than, `<`, and equality, `==`. For example, we can create a new variable called `more_boys` that tells us whether the number of births of boys outnumbered that of girls in each year. To do this, create a new variable, name it `more_boys` and enter `boys` then the greater than sign (>) then `girls`. Click `Compute column`, and you will see a column with `true` and `false`.
+Finally, in addition to simple mathematical operators like subtraction and division, you can ask jamovi to make comparisons like greater than, `>`, less than, `<`, and equality, `==`. For example, we can create a new variable called `more_boys` that tells us whether the number of births of boys outnumbered that of girls in each year. To do this, create a new variable, name it `more_boys` and enter `boys` then the greater than sign (>) then `girls`. Click `Compute column`, and you will see a column with `true` and `false`.
 
 ## More practice
 
