@@ -60,7 +60,7 @@ The plot you see shows how likely a difference of means would be under the null 
 
 In the options, click to highlight `Compute probability`, then replace $x_1$ with your observed difference. (The choice of $P(X \leq x_1)$ is what we want to keep.) You will see a (rounded) value show up, and the area will be highlighted (if enough is visible to be highlighted). (This is actually half of the p-value, since we did not specify a direction, and so are doing a t-tailed test.)
 
-While we were able to determine an approximate p-value using this package, Jamovi will let us calculate a more precise value directly. Open the `T-Tests` menu, then select `Independent Samples T-Test`. Select `weight` as your dependent variable and `physical_3plus` as your `Grouping Variable`. This will create a table on the right hand side.
+While we were able to determine an approximate p-value using this package, jamovi will let us calculate a more precise value directly. Open the `T-Tests` menu, then select `Independent Samples T-Test`. Select `weight` as your dependent variable and `physical_3plus` as your `Grouping Variable`. This will create a table on the right hand side.
 
 5. What is the value in the `t` column?
 

@@ -15,13 +15,13 @@ knitr::opts_chunk$set(eval = TRUE, results = FALSE, fig.show = "hide", message =
 
 In this lab, you'll investigate the probability distribution that is most central to statistics: the normal distribution.
 If you are confident that your data are nearly normal, that opens the door to many powerful statistical methods.
-Here we'll use the graphical tools of Jamovi to assess the normality of our data and also learn how to generate random numbers from a normal distribution. We'll also discover a little about `R`, the language Jamovi is built on.
+Here we'll use the graphical tools of jamovi to assess the normality of our data and also learn how to generate random numbers from a normal distribution. We'll also discover a little about `R`, the language jamovi is built on.
 
 ## Getting Started
 
 ### Load module
 
-In this lab, we will use the `distrACTION` module in Jamovi, which contains information on distributions. Click the plus button at the top right part of the screen, and add the distrACTION module to Jamovi. When you do this, you will see a new icon in the top bar.
+In this lab, we will use the `distrACTION` module in jamovi, which contains information on distributions. Click the plus button at the top right part of the screen, and add the distrACTION module to jamovi. When you do this, you will see a new icon in the top bar.
 
 ### The data
 
@@ -68,7 +68,7 @@ You can verify this by creating a frequency histogram of the same variable in th
 Eyeballing the shape of the histogram is one way to determine if the data appear to be nearly normally distributed, but it can be frustrating to decide just how close the histogram is to the curve.
 An alternative approach involves constructing a normal probability plot, also called a normal Q-Q plot for "quantile-quantile".
 
-Again within the `Exploration` section, open the `plots` menu and check the `Q-Q` box to have Jamovi generate the Q-Q plot for this data.
+Again within the `Exploration` section, open the `plots` menu and check the `Q-Q` box to have jamovi generate the Q-Q plot for this data.
 
 The x-axis values correspond to the quantiles of a theoretically normal curve with mean 0 and standard deviation 1 (i.e., the standard normal distribution).
 The y-axis values correspond to the quantiles of the original unstandardized sample data.

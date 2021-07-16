@@ -78,7 +78,7 @@ In this lab, you have access to the entire population, but this is rarely the ca
 Gathering information on an entire population is often extremely costly or impossible.
 Because of this, we often take a sample of the population and use that to understand the properties of the population.
 
-If you are interested in estimating the proportion of people who don't think the work scientists do benefits them, you can use the sampling function in Jamovi to survey the population.
+If you are interested in estimating the proportion of people who don't think the work scientists do benefits them, you can use the sampling function in jamovi to survey the population.
 
 Open your data set, and add a new `COMPUTED VARIABLE`. Name this variable `samp1`, and it is defined by the function `SAMPLE(scientist_work, 50)`. You won't see any data show up in the data viewer, but you can get summaries and graphs of this new variable.  Create a frequency table of this new variable to see how many people responded in each way.
 

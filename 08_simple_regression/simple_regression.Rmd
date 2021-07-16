@@ -58,7 +58,7 @@ The most common way to do linear regression is to select the line that minimizes
 
 It is rather cumbersome to try to get the correct least squares line, i.e. the line that minimizes the sum of squared residuals, through trial and error.
 
-Instead, you can use Jamovi to fit the linear model (a.k.a. regression line). Click `Regression`, then `Linear Regression`. For the dependent variable, select `pf_score` and for covariates, select `pf_expression_control`.
+Instead, you can use jamovi to fit the linear model (a.k.a. regression line). Click `Regression`, then `Linear Regression`. For the dependent variable, select `pf_score` and for covariates, select `pf_expression_control`.
 
 We're going to focus on the table with the title `Model Coefficients` for this analysis.
 
@@ -82,7 +82,7 @@ For this model, 71.4% of the variability in `pf_score` is explained by `pf_expre
 
 ## Prediction and prediction errors
 
-Look at a scatter plot for these variables, and make sure the regression line option is set to `Linear` and not `Smooth` to ensure that Jamovi is using a line to estimate the relationship and not a curved line.
+Look at a scatter plot for these variables, and make sure the regression line option is set to `Linear` and not `Smooth` to ensure that jamovi is using a line to estimate the relationship and not a curved line.
 
 This line can be used to predict $y$ at any value of $x$.
 When predictions are made for values of $x$ that are beyond the range of the observed data, it is referred to as *extrapolation* and is not usually recommended.
