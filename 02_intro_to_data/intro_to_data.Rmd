@@ -67,7 +67,7 @@ Let's start by examining the distribution of departure delays of all flights wit
 
 Histograms are generally a very good way to see the shape of a single distribution of numerical data, but that shape can change depending on how the data is split between the different bins. jamovi attempts to choose a reasonable number of bins. (They are working to allow the user to change the number of bins, though this feature is not available yet.)
 
-If you want to visualize only on delays of flights headed to Los Angeles, you need to first `filter` the data for flights with that destination. To do this, click the data tab at the top of the window, where you will see an icon that looks like a funnel in the top bar. This brings up the filter menu, where we can apply conditions.
+If you want to visualize only delays of flights headed to Los Angeles, you need to first `filter` the data for flights with that destination. To do this, click the data tab at the top of the window, where you will see an icon that looks like a funnel in the top bar. This brings up the filter menu, where we can apply conditions.
 
 We want to only use arrivals where the destination is Los Angeles, so our condition is `dest=="LAX"`. The two equal signs is a "test" which determines whether the variable `dest` is equal to the value "LAX", and anything other than that condition will be filtered out. You will then see parts of your data greyed out, leaving only the requested data. 
 
