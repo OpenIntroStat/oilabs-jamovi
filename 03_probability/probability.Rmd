@@ -28,7 +28,7 @@ The goals for this lab are to (1) think about the effects of independent and dep
 
 ## Getting Started
 
-## Modules
+### Modules
 
 In this lab, we're going to use some code written in the language `R`, which jamovi is built on. You won't be editing the code directly, but we'll need to add a module to be able to run R code directly in jamovi. Click the plus button add install the `Rj - Editor to run R code inside jamovi` module.
 
