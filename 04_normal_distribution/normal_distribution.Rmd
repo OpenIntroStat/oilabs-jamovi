@@ -106,7 +106,7 @@ Once you decide that a random variable is approximately normal, you can answer a
 Take, for example, the question of, "What is the probability that a randomly chosen Dairy Queen product has more than 600 calories from fat?"
 
 If we assume that the calories from fat from Dairy Queen's menu are normally distributed (a very close approximation is also okay), we can find this probability by calculating a Z score and consulting a Z table (also called a normal probability table).
-In JASP, this is done in the `Show Distributions` section of the Normal menu. Within this menu, make sure parameters is set to $\mu, \sigma$, and mean and standard deviation are correct, then check the `Probability` box under `Highlight`. Select "from 0 to $\infty$", then chance the 0 to 600.
+In jamovi, this is done in the `Compute probability` section of the Normal menu. Within this menu, make sure the mean and standard deviation are correct, then check the `Compute probability` box. Select the third button and set x1 to 0 and x2 to 600.
 
 Assuming a normal distribution has allowed us to calculate a theoretical probability.
 If we want to calculate the probability empirically, we need to determine how many observations fall above 600. We could do this by creating a new variable which is 0 or 1 depending on whether `cal_fat` is greater than 600, then take the mean of this column.
