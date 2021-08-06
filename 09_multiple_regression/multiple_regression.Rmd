@@ -97,7 +97,7 @@ $$
 
 9.  What is the equation of the line corresponding to male professors? (*Hint:* For male professors, the parameter estimate is multiplied by 1, or includes the term for `male-female`.) For two professors who received the same beauty rating, which gender tends to have the higher course evaluation score?
 
-The decision to use female as the reference level has no deeper meaning. Often software will indicate these types of variables by coding a $0$ to whichever category comes first alphabetically, so we are matching that convention. We could reorder the levels of the gender variable in the `rreference Levels` menu, and we would come to the same final conclusions.
+The decision to use female as the reference level has no deeper meaning. Often software will indicate these types of variables by coding a $0$ to whichever category comes first alphabetically, so we are matching that convention. We could reorder the levels of the gender variable in the `Reference Levels` menu, and we would come to the same final conclusions.
 
 10. We'll next create a new model with `gender` removed and `rank` added in. How does jamovi appear to handle categorical variables that have more than two levels? Note that the rank variable has three levels: `teaching`, `tenure track`, `tenured`.
 
