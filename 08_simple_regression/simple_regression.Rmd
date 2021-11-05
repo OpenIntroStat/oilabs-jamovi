@@ -13,7 +13,7 @@ The Human Freedom Index is a report that attempts to summarize the idea of "free
 It serves as a rough objective measure for the relationships between the different types of freedom - whether it's political, religious, economical or personal freedom - and other social and economic circumstances.
 The Human Freedom Index is an annually co-published report by the Cato Institute, the Fraser Institute, and the Liberales Institut at the Friedrich Naumann Foundation for Freedom.
 
-In this lab, you'll be analysing data from the Human Freedom Index reports.
+In this lab, you'll be analyzing data from the Human Freedom Index reports.
 Your aim will be to summarize a few of the relationships within the data both graphically and numerically in order to find which variables can help tell a story about freedom.
 
 ## Getting Started
@@ -97,7 +97,7 @@ To assess whether the linear model is reliable, we need to check for (1) lineari
 
 **Linearity**: You already checked if the relationship between `pf_score` and `pf_expression_control` is linear using a scatterplot.
 
-We should also verify this condition with a plot of the residuals vs. fitted (predicted) values. Go back to the Linear Regression analysis, and open the `Model Fit` submenu. Check the `Residual plots` box and look at the plots that are created. We will focus on the first one, Residuals vs Fitted.
+We should also verify this condition with a plot of the residuals vs. fitted (predicted) values. Go back to the Linear Regression analysis, and open the `Assumption Checks` submenu. Check the `Residual plots` box and look at the plots that are created. We will focus on the first one, Residuals vs Fitted.
 
 8.  Is there any apparent pattern in the residuals plot? What does this indicate about the linearity of the relationship between the two variables?
 
@@ -124,9 +124,9 @@ We should also verify this condition with a plot of the residuals vs. fitted (pr
     Does your independent variable seem to predict `pf_score` better?
     Why or why not?
 
--   Check the model diagnostics using appropriate visualisations and evaluate if the model conditions have been met.
+-   Check the model diagnostics using appropriate visualizations and evaluate if the model conditions have been met.
 
--   Pick another pair of variables of interest and visualise the relationship between them.
+-   Pick another pair of variables of interest and visualize the relationship between them.
     Do you find the relationship surprising or is it what you expected.
     Discuss why you were interested in these variables and why you were/were not surprised by the relationship you observed.
 
