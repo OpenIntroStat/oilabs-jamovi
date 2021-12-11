@@ -20,8 +20,6 @@ creating new ones, please let us know!
 
 ## Labs
 
-[TO DO: UPDATE LINKS]
-
 1. [Intro to R](http://openintrostat.github.io/oilabs-jamovi/01_intro_to_r/intro_to_r.html)
 2. [Intro to data](http://openintrostat.github.io/oilabs-jamovi/02_intro_to_data/intro_to_data.html)
 4. [Probability](http://openintrostat.github.io/oilabs-jamovi/03_probability/probability.html)

@@ -77,7 +77,7 @@ Go back to the Analysis tab to create a new histogram of `dep_delay` and you wil
 
 You can also obtain numerical summaries for these flights in the `Descriptives` table, created by default when you select the `dep_delay` variable in the `Descriptives` menu.
 
-You can also filter based on multiple criteria. Suppose you are interested in flights headed to San Francisco (SFO) in February. Bring up the filter menu. We want the use only data that satisfies the conditions `dest=="SFO` and `month==2`, which we can do by using a filter `dest=="SFO" and month==2`.
+You can also filter based on multiple criteria. Suppose you are interested in flights headed to San Francisco (SFO) in February. Bring up the filter menu. We want the use only data that satisfies the conditions `dest=="SFO"` and `month==2`, which we can do by using a filter `dest=="SFO" and month==2`.
 
 ![](img/filter2.png)
 At the bottom of this view, you can see that there were originally 32,735 rows, and the filter has filtered out 32,667 of them. This means that there are 68 rows left after the filter has been applied.

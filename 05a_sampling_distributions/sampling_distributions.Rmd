@@ -66,7 +66,7 @@ In this lab, you will assume this 20% is a true population proportion and learn 
 We will first create our population assuming a population size of 100,000.
 This means 20,000 (20%) of the population think the work scientists do does not benefit them personally and the remaining 80,000 think it does.
 
-The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](global_monitor.csv). 
+The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](./more/global_monitor.csv).
 
 We can quickly visualize the distribution of these responses using a bar plot. You can find this in the `Exploration` menu, by clicking `Bar plot` in `Plots`.
 

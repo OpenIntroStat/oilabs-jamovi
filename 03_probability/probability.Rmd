@@ -129,7 +129,7 @@ In a simulation, you set the ground rules of a random process and then the compu
 
 As a simple example, you can simulate flipping a fair coin. Create a new "Computed Variable" and name it `sim_coin`. We're going to flip our simulated coin 133 times (because that's the size of our data set) and see what the results look like. 
 
-For the formula for the variable, enter `IF(UNIF()>0.5,"H","T")`. This formula is a little more complicated, so let's unpack it. `UNIF()` picks a random number between 0 and 1. jamovi then tests whether the number is greater or less than 0.5. If it's greater, it picks an "H" and if it's less, it picks a "T". jamovi then repeats this process for every row in the data set. This means you'll see a column of H's and T's, representing the heads and tails of 133 flips of a simulated fair coin.
+For the formula for the variable, enter `IF(UNIF()<0.5,"H","T")`. This formula is a little more complicated, so let's unpack it. `UNIF()` picks a random number between 0 and 1. jamovi then tests whether the number is greater or less than 0.5. If it's greater, it picks an "H" and if it's less, it picks a "T". jamovi then repeats this process for every row in the data set. This means you'll see a column of H's and T's, representing the heads and tails of 133 flips of a simulated fair coin.
 
 Each entry in `sim_coin` can be thought of as a hat with two slips of paper in it: one slip says `heads` (H) and the other says `tails` (T).
 Each entry draws one slip from the hat and tells us if it was a head or a tail.
@@ -140,7 +140,7 @@ Create a table using the `Exploration` analysis to determine how many H's and ho
 
 We used the default probability that when we "flip" a coin and it lands heads is 0.5.
 Say we're trying to simulate an unfair coin that we know only lands heads 20% of the time.
-We can adjust this by changing when the random number gets assigned an "H" or a "T" in our `IF` statement. Create another new variable named `sim_unfair_coin` and assigned it with the function `IF(UNIF()>0.2,"H","T")`. This will come up heads 20% of the time and tails 80% of the time, on average. Create a table of counts for the results of this simulation.
+We can adjust this by changing when the random number gets assigned an "H" or a "T" in our `IF` statement. Create another new variable named `sim_unfair_coin` and assigned it with the function `IF(UNIF()<0.2,"H","T")`. This will come up heads 20% of the time and tails 80% of the time, on average. Create a table of counts for the results of this simulation.
 
 Another way of thinking about this is to think of the outcome space as a bag of 10 chips, where 2 chips are labeled "head" and 8 chips "tail".
 Therefore at each draw, the probability of drawing a chip that says "head"" is 20%, and "tail" is 80%.
