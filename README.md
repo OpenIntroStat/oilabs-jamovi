@@ -1,8 +1,5 @@
-OpenIntro Labs - jamovi
-==============
-
 OpenIntro Labs promote the understanding and application of statistics through  applied data analysis.
-Labs are titled based on topic area, which correpond to  particular chapters in all three versions of OpenIntro Statistics, a free and  open-source textbook.
+Labs are titled based on topic area, which correspond to  particular chapters in all three versions of OpenIntro Statistics, a free and  open-source textbook.
 The textbook as well as the html version of the labs can be found at [http://www.openintro.org/stat/labs.php](http://www.openintro.org/stat/labs.php).
 
 This repository is a fork of [oilabs-tidy](https://github.com/OpenIntroStat/oilabs-tidy). 
@@ -12,7 +9,7 @@ It is built on the programming language R, and allows for a variety of statistic
 
 ## Labs
 
-1. [Intro to Jamovi](http://openintrostat.github.io/oilabs-jamovi/01_intro_to_jamovi/intro_to_jamovi.html)
+1. [Intro to jamovi](http://openintrostat.github.io/oilabs-jamovi/01_intro_to_jamovi/intro_to_jamovi.html)
 2. [Intro to data](http://openintrostat.github.io/oilabs-jamovi/02_intro_to_data/intro_to_data.html)
 4. [Probability](http://openintrostat.github.io/oilabs-jamovi/03_probability/probability.html)
 3. [Normal distribution](http://openintrostat.github.io/oilabs-jamovi/04_normal_distribution/normal_distribution.html)
