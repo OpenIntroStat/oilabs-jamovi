@@ -1,22 +1,14 @@
 OpenIntro Labs - jamovi
 ==============
 
-OpenIntro Labs promote the understanding and application of statistics through 
-applied data analysis. Labs are titled based on topic area, which correpond to 
-particular chapters in all three versions of OpenIntro Statistics, a free and 
-open-source textbook. The textbook as well as the html version of the labs can
-be found at [http://www.openintro.org/stat/labs.php](http://www.openintro.org/stat/labs.php).
+OpenIntro Labs promote the understanding and application of statistics through  applied data analysis.
+Labs are titled based on topic area, which correpond to  particular chapters in all three versions of OpenIntro Statistics, a free and  open-source textbook.
+The textbook as well as the html version of the labs can be found at [http://www.openintro.org/stat/labs.php](http://www.openintro.org/stat/labs.php).
 
 This repository is a fork of [oilabs-tidy](https://github.com/OpenIntroStat/oilabs-tidy). 
-It uses [jamovi](https://www.jamovi.org/). jamovi is free and open source software for conducting statistical analysis. It is built on the programming language R, and allows for a variety of statistical analyses.
-
-We currently support our source files in the RMarkdown (.Rmd) format, which can be output into
-html format (though output to pdf is also possible). The source files are processed
-using the [knitr](http://yihui.name/knitr/) package in R, and are easiest to use in [RStudio](https://www.rstudio.com/products/rstudio/download/).
-
-It is our hope that these materials are useful for instructors and students of 
-statistics.  If you end up developing some interesting variants of these labs or 
-creating new ones, please let us know!
+It uses [jamovi](https://www.jamovi.org/).
+jamovi is free and open source software for conducting statistical analysis.
+It is built on the programming language R, and allows for a variety of statistical analyses.
 
 ## Labs
 
@@ -32,13 +24,26 @@ creating new ones, please let us know!
 8. [Simple linear regression](http://openintrostat.github.io/oilabs-jamovi/08_simple_regression/simple_regression.html)
 9. [Multiple linear regression](http://openintrostat.github.io/oilabs-jamovi/09_multiple_regression/multiple_regression.html)
 
+## Source code for labs
+
+We currently support our source files in the RMarkdown (.Rmd) format, which can be output into html format (though output to pdf is also possible).
+The source files are processed using the [knitr](http://yihui.name/knitr/) package in R, and are easiest to use in [RStudio](https://www.rstudio.com/products/rstudio/download/).
+
 ## Feedback / collaboration
 
-Your feedback is most welcomed! If you have suggestions for minor updates (fixing
-typos, etc.) please do not hesitate to issue a pull request. If you have ideas for
-major revamp of a lab (replacing outdated code with modern version, overhaul in 
-pedagogy, etc.) please create an issue so to start the conversation.
+Your feedback is most welcomed!
+If you have suggestions for minor updates (fixing typos, etc.) please do not hesitate to issue a pull request.
+If you have ideas for major revamp of a lab (replacing outdated code with modern version, overhaul in pedagogy, etc.) please create an issue so to start the conversation.
 
+It is our hope that these materials are useful for instructors and students of 
+statistics.
+If you end up developing some interesting variants of these labs or 
+creating new ones, please let us know!
+
+## Code of Conduct
+  
+Please note that the openintro-jamovi project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). 
+By contributing to this project, you agree to abide by its terms.
 
 * * *
 
