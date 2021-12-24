@@ -20,14 +20,14 @@ creating new ones, please let us know!
 
 ## Labs
 
-1. [Intro to R](http://openintrostat.github.io/oilabs-jamovi/01_intro_to_r/intro_to_r.html)
+1. [Intro to R](http://openintrostat.github.io/oilabs-jamovi/01_intro_to_jamovi/intro_to_jamovi.html)
 2. [Intro to data](http://openintrostat.github.io/oilabs-jamovi/02_intro_to_data/intro_to_data.html)
 4. [Probability](http://openintrostat.github.io/oilabs-jamovi/03_probability/probability.html)
 3. [Normal distribution](http://openintrostat.github.io/oilabs-jamovi/04_normal_distribution/normal_distribution.html)
 5. Foundations of inference  
-  a. [Sampling distributions](https://openintro.shinyapps.io/sampling_distributions/)  
-  b. [Confidence intervals](https://openintro.shinyapps.io/confidence_intervals/)
-6. [Inference for categorical data](https://openintro.shinyapps.io/inf_for_categorical_data/)
+  a. [Sampling distributions](https://openintro.shinyapps.io/sampling_distributions_jamovi)  
+  b. [Confidence intervals](https://openintro.shinyapps.io/confidence_intervals_jamovi)
+6. [Inference for categorical data](https://openintro.shinyapps.io/inf_for_categorical_data_jamovi)
 7. [Inference for numerical data](http://openintrostat.github.io/oilabs-jamovi/07_inf_for_numerical_data/inf_for_numerical_data.html)
 8. [Simple linear regression](http://openintrostat.github.io/oilabs-jamovi/08_simple_regression/simple_regression.html)
 9. [Multiple linear regression](http://openintrostat.github.io/oilabs-jamovi/09_multiple_regression/multiple_regression.html)
