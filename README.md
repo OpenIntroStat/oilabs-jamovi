@@ -20,7 +20,7 @@ creating new ones, please let us know!
 
 ## Labs
 
-1. [Intro to R](http://openintrostat.github.io/oilabs-jamovi/01_intro_to_r/intro_to_r.html)
+1. [Intro to R](http://openintrostat.github.io/oilabs-jamovi/01_intro_to_jamovi/intro_to_jamovi.html)
 2. [Intro to data](http://openintrostat.github.io/oilabs-jamovi/02_intro_to_data/intro_to_data.html)
 4. [Probability](http://openintrostat.github.io/oilabs-jamovi/03_probability/probability.html)
 3. [Normal distribution](http://openintrostat.github.io/oilabs-jamovi/04_normal_distribution/normal_distribution.html)
