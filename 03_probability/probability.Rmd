@@ -126,10 +126,9 @@ We can compare his streak lengths to someone without a hot hand: an independent 
 While we don't have any data from a shooter we know to have independent shots, that sort of data is very easy to simulate in jamovi.
 In a simulation, you set the ground rules of a random process and then the computer uses random numbers to generate an outcome that adheres to those rules.
 
-
 As a simple example, you can simulate flipping a fair coin. Create a new "Computed Variable" and name it `sim_coin`. We're going to flip our simulated coin 133 times (because that's the size of our data set) and see what the results look like. 
 
-For the formula for the variable, enter `IF(UNIF()<0.5,"H","T")`. This formula is a little more complicated, so let's unpack it. `UNIF()` picks a random number between 0 and 1. jamovi then tests whether the number is greater or less than 0.5. If it's greater, it picks an "H" and if it's less, it picks a "T". jamovi then repeats this process for every row in the data set. This means you'll see a column of H's and T's, representing the heads and tails of 133 flips of a simulated fair coin.
+For the formula for the variable, enter `IF(UNIF()<0.5,"H","T")`. This formula is a little more complicated, so let's unpack it. `UNIF()` picks a random number between 0 and 1. jamovi then tests whether the number is greater or less than 0.5. If it's less, it picks an "H" and if it's greater, it picks a "T". jamovi then repeats this process for every row in the data set. This means you'll see a column of H's and T's, representing the heads and tails of 133 flips of a simulated fair coin.
 
 Each entry in `sim_coin` can be thought of as a hat with two slips of paper in it: one slip says `heads` (H) and the other says `tails` (T).
 Each entry draws one slip from the hat and tells us if it was a head or a tail.
