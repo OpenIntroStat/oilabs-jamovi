@@ -260,19 +260,6 @@ div.tocify {
 <p>In your description of the distributions, did you use words like <em>bell-shaped</em> or <em>normal</em>? It’s tempting to say so when faced with a unimodal symmetric distribution.</p>
 <p>To see how accurate that description is, you can plot a normal distribution curve on top of a histogram to see how closely the data follow a normal distribution. This normal curve should have the same mean and standard deviation as the data.</p>
 <p>You’ll be focusing on calories from fat from Dairy Queen products, so let’s first filter out everything except for those products.</p>
-<!-- can't do in jamovi
-
-Open the `Distributions` menu and select `Normal` in the continuous section. We want to work with our actual data, so click `Generate and Display Data` to show those options. Move `cal_fat` into the `Get variable from data set` box so that we can inspect it further.
-
-Next we want to compare this to the normal distribution, so open the `Assess Fit` section of this same page. Check the box `Histogram vs. theoreitcal pdf` to overlay a density histogram with a normal distribution with the same mean and standard deviation.
-
-The difference between a frequency histogram and a density histogram is that while in a frequency histogram the *heights* of the bars add up to the total number of observations, in a density histogram the *areas* of the bars add up to 1.
-The area of each bar can be calculated as simply the height *times* the width of the bar.
-Using a density histogram allows us to properly overlay a normal distribution curve over the histogram since the curve is a normal probability density function that also has area under the curve of 1.
-Frequency and density histograms both display the same exact shape; they only differ in their y-axis.
-You can verify this by creating a frequency histogram of the same variable in the `Descriptives` menu. 
-
-2.  Based on the this plot, does it appear that the data follow a nearly normal distribution? -->
 </div>
 <div id="evaluating-the-normal-distribution" class="section level2">
 <h2>Evaluating the normal distribution</h2>
@@ -281,13 +268,11 @@ You can verify this by creating a frequency histogram of the same variable in th
 <p>The x-axis values correspond to the quantiles of a theoretically normal curve with mean 0 and standard deviation 1 (i.e., the standard normal distribution). The y-axis values correspond to the quantiles of the original unstandardized sample data. However, even if we were to standardize the sample data values, the Q-Q plot would look identical. A data set that is nearly normal will result in a probability plot where the points closely follow a diagonal line. Any deviations from normality leads to deviations of these points from that line.</p>
 <p>The plot for Dairy Queen’s calories from fat shows points that tend to follow the line but with some errant points towards the upper tail. You’re left with the same problem that we encountered with the histogram above: how close is close enough?</p>
 <p>A useful way to address this question is to rephrase it as: what do probability plots look like for data that I <em>know</em> came from a normal distribution?</p>
-<p>We can answer this by simulating data from a normal distribution. Make a note of the mean and standard deviation from our <code>cal_fat</code> variable - we’re going to need them. Go back to the data and remove the filter - we don’t want the filter to affect the data we’re going to generate. Back in the Normal distributions menu, we can now click the <code>Show Distribution</code> menu. We’re going to specify the mean and standard deviation for our distribution, so in the <code>Parameters</code> pulldown menu, select <span class="math inline">\(\mu, \sigma\)</span>, and in the boxes below, type the mean and standard deviation of our variable in.</p>
-<p>Now open the <code>Generate and Display Data</code> section. We’re going to simulate data by drawing points from a normal distribution with the same mean and standard deviation as our data. Since we have 42 observations in our dataset, enter 42 into the <code>Number of samples</code> box, and give the variable the name <code>sim_norm</code>, then click <code>Draw samples</code>.</p>
-<p>We now have <code>sim_norm</code> as a variable that we can work with, so we can inspect it. You can take a look at the shape of our simulated data set, <code>sim_norm</code>, as well as its normal probability plot.</p>
+<p>We can answer this by simulating data from a normal distribution. Make a note of the mean and standard deviation from our <code>cal_fat</code> variable - we’re going to need them. We can make a new variable with the same mean and standard deviation which does come from a normal distribution. To do this, make a new variable called <code>sim_norm</code> using the “New Computed Variable” option. For the formula, click the <span class="math inline">\(f_x\)</span> menu, then scroll down to the bottom. <code>NORM</code> will sample from a normal distribution. Enter the mean and standard deviation in parentheses after <code>NORM</code> with a comma between them.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Make a normal probability plot (Q-Q plot) of <code>sim_norm</code>. Do all of the points fall on the line? How does this plot compare to the probability plot for the real data?</li>
+<li>Make a normal probability plot (Q-Q plot) of <code>sim_norm</code> variable. Do all of the points fall on the line? How does this plot compare to the probability plot for the real data?</li>
 </ol>
-<p>Even better than comparing the original plot to a single plot generated from a normal distribution is to compare it to more plots. Click the <code>Draw samples</code> button again to generate another set of data using the same parameters.</p>
+<p>Even better than comparing the original plot to a single plot generated from a normal distribution is to compare it to more plots. Using the same method, create <code>sim_norm2</code>, <code>sim_norm3</code>, and so on, until you have a collection of variables which are all normally distributed.</p>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Does the normal probability plot for the calories from fat look similar to the plots created for the simulated data? That is, do the plots provide evidence that the calories from fat are nearly normal?</p></li>
 <li><p>Using the same technique, determine whether or not the calories from McDonald’s menu appear to come from a normal distribution.</p></li>
