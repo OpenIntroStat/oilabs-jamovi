@@ -3,7 +3,7 @@ title: 'Foundations for statistical inference - Confidence intervals'
 runtime: shiny
 output:
   html_document:
-    css: ../lab.css
+    css: www/lab.css
     highlight: pygments
     theme: cerulean
     toc: true
