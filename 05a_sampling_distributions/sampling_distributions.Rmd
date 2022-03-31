@@ -251,7 +251,7 @@ You are welcome to use the app for exploration.-->
     Describe the shape of this sampling distribution and compare it to the sampling distribution for a sample size of 15.
     Based on this sampling distribution, what would you guess to be the true proportion of those who think the work scientists do enhances their lives?
 
-4.  Of the sampling distributions from 2 and 3, which has a smaller spread?
+4.  Of the sampling distributions from 8 and 9, which has a smaller spread?
     If you're concerned with making estimates that are more often close to the true value, would you prefer a sampling distribution with a large or small spread?
 
 ------------------------------------------------------------------------
