@@ -46,7 +46,7 @@ In this lab, you will assume this 62% is a true population proportion and learn 
 We will first create our population assuming a population size of 100,000.
 This means 62,000 (62%) of the adult population think climate change impacts their community, and the remaining 38,000 does not think so.
 
-The name of the data frame is `us_adults` and the name of the variable that contains responses to the question *"Do you think climate change is affecting your local community?"* is `climate_change_affects`. The file can be found [here](more/us_adults.csv).
+The name of the data frame is `us_adults` and the name of the variable that contains responses to the question *"Do you think climate change is affecting your local community?"* is `climate_change_affects`. The file can be found [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/05b_confidence_intervals/more/us_adults.csv).
 
 We can quickly visualize the distribution of these responses using a bar plot. Do this using the `Exploration` menu.
 
@@ -86,7 +86,7 @@ The bootstrapping scheme is as follows:
 
 This process will find the 95 percent confidence interval for proportion of US adults who think climate change affects their local community.
 
-This has been done 1000 times, and the results are [here](more/sample_props60.csv). Open this data and take a look. The value for $\hat{p}$ is determined for each sample. 
+This has been done 1000 times, and the results are [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/05b_confidence_intervals/more/sample_props60.csv). Open this data and take a look. The value for $\hat{p}$ is determined for each sample. 
 
 Now, open a descriptives analysis and plot a histogram of $\hat{p}$. Open the `Statistics` submenu, and check the `Percentiles` box. Since we want a 95% confidence interval, we want to cut at the 2.5 and 97.5 percentiles, so enter `2.5, 97.5` in the box. You will see these values show up in the descriptive statistics table to the right.
 

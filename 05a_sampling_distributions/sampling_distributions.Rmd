@@ -66,7 +66,7 @@ In this lab, you will assume this 20% is a true population proportion and learn 
 We will first create our population assuming a population size of 100,000.
 This means 20,000 (20%) of the population think the work scientists do does not benefit them personally and the remaining 80,000 think it does.
 
-The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](./more/global_monitor.csv).
+The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/05a_sampling_distributions/more/global_monitor.csv).
 
 We can quickly visualize the distribution of these responses using a bar plot. You can find this in the `Exploration` menu, by clicking `Bar plot` in `Plots`.
 
@@ -108,7 +108,7 @@ In general, though, the sample proportion turns out to be a pretty good estimate
 Not surprisingly, every time you take another random sample, you might get a different sample proportion.
 It's useful to get a sense of just how much variability you should expect when estimating the population mean this way.
 The distribution of sample proportions, called the *sampling distribution (of the proportion)*, can help you understand this variability.
-In this lab, because you have access to the population, you could build up the sampling distribution for the sample proportion by repeating the above steps many times. By repeating this process 15,000 times, we generated 15,000 samples of size 50 from the population, calculate the proportion of responses in each sample, and store the results, and saved these results in the file [here](more/sample_props50.csv). Load this dataset to get a sense of what it tells us.
+In this lab, because you have access to the population, you could build up the sampling distribution for the sample proportion by repeating the above steps many times. By repeating this process 15,000 times, we generated 15,000 samples of size 50 from the population, calculate the proportion of responses in each sample, and store the results, and saved these results in the file [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/05a_sampling_distributions/more/sample_props50.csv). Load this dataset to get a sense of what it tells us.
 
 We can now visualize the distribution of the proportions with a histogram. Create a histogram of the proportions in the `sample_props50` dataset.
 
