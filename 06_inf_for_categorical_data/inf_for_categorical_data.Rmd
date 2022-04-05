@@ -19,7 +19,7 @@ library(ggplot2)
 
 ### The data
 
-You will be analyzing the same dataset as in the previous lab, where you delved into a sample from the Youth Risk Behavior Surveillance System (YRBSS) survey, which uses data from high schoolers to help discover health patterns. The dataset is called `yrbss`, and you can find it [here](more/yrbss.csv).
+You will be analyzing the same dataset as in the previous lab, where you delved into a sample from the Youth Risk Behavior Surveillance System (YRBSS) survey, which uses data from high schoolers to help discover health patterns. The dataset is called `yrbss`, and you can find it [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/06_inf_for_categorical_data/more/yrbss.csv).
 
 1.  What are the counts within each category for the amount of days these students have texted while driving within the past 30 days?
 
@@ -59,7 +59,7 @@ ME = 1.96\times SE = 1.96\times\sqrt{p(1-p)/n} \,.
 $$ Since the population proportion $p$ is in this $ME$ formula, it should make sense that the margin of error is in some way dependent on the population proportion.
 We can visualize this relationship by creating a plot of $ME$ vs. $p$.
 
-Since sample size is irrelevant to this discussion, let's just set it to some value ($n = 1000$) and use this value in our calculations. In the dataset [here](more/me.csv), there are two columns. The first is a variable `p` that is a sequence from 0 to 1 with each number incremented by 0.01.
+Since sample size is irrelevant to this discussion, let's just set it to some value ($n = 1000$) and use this value in our calculations. In the dataset [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/06_inf_for_categorical_data/more/me.csv), there are two columns. The first is a variable `p` that is a sequence from 0 to 1 with each number incremented by 0.01.
 The second is the margin of error (`me`) associated with each of these values of `p` using the familiar approximate formula ($ME = 2 \times SE$).
 
 Lastly, you can plot the two variables against each other to reveal their relationship. Do this by creating a scatterplot. Put `p` on the x-axis and `me` on the y-axis.
