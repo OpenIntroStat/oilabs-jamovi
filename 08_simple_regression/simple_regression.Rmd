@@ -20,7 +20,7 @@ Your aim will be to summarize a few of the relationships within the data both gr
 
 ### The data
 
-The data we're working with is [here](more/hfi.csv), and it's called `hfi`, short for Human Freedom Index. Information about the variables can be seen [here](https://www.openintro.org/data/index.php?data=hfi).
+The data we're working with is [here](https://openintrostat.github.io/oilabs-jamovi/08_simple_regression/more/hfi.csv), and it's called `hfi`, short for Human Freedom Index. Information about the variables can be seen [here](https://www.openintro.org/data/index.php?data=hfi).
 
 1.  What are the dimensions of the dataset?
     What does each row represent?
