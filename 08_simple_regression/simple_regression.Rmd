@@ -97,7 +97,7 @@ To assess whether the linear model is reliable, we need to check for (1) lineari
 
 **Linearity**: You already checked if the relationship between `pf_score` and `pf_expression_control` is linear using a scatterplot.
 
-We should also verify this condition with a plot of the residuals vs. fitted (predicted) values. Go back to the Linear Regression analysis, and open the `Model Fit` submenu. Check the `Residual plots` box and look at the plots that are created. We will focus on the first one, Residuals vs Fitted.
+We should also verify this condition with a plot of the residuals vs. fitted (predicted) values. Go back to the Linear Regression analysis, and open the `Assumption Checks` submenu. Check the `Residual plots` box and look at the plots that are created. We will focus on the first one, Residuals vs Fitted.
 
 8.  Is there any apparent pattern in the residuals plot? What does this indicate about the linearity of the relationship between the two variables?
 
