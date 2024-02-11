@@ -21,9 +21,9 @@ The goal of this lab is to introduce you to jamovi, which you'll be using throug
 
 As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better data analyst! Before we get to that stage, however, you need to build some basic fluency with jamovi. First, we will explore the fundamental building blocks of jamovi, reading in data, and basic commands for working with data in jamovi.
 
-You can download jamovi from https://www.jamovi.org/. Click `download` near the top of the screen, then select the version from the computer you are using.
+You can download jamovi from https://www.jamovi.org/. Click `jamovi Desktop` box near the top of the screen, then select the version from the computer you are using.
 
-Go ahead and launch jamovi You should see a window that looks like the image shown below.
+Go ahead and launch jamovi. You should see a window that looks like the image shown below.
 
 ```{r r-interface-2020, echo=FALSE, results="asis"}
 knitr::include_graphics("img/jamovi-interface-2021.png")
@@ -69,7 +69,7 @@ Now that we have some analysis, we should save our file in case we want to come 
 
 ### Data visualization
 
-In order to create a scatterplot in jamovi, we will add a module. This extends the capabilities of jamovi. Click the plus button at the top right part of the screen, , select `jamovi library`, then click `INSTALL` in the first option, `scatr`. Click the up arrow to close this menu, then when you click `Exploration`, again, there will be new options. Click `Scatterplot` in the `Exploration` menu.
+In order to create a scatterplot in jamovi, we will add a module. This extends the capabilities of jamovi. Click the plus button at the top right part of the screen, select `jamovi library`, then click `INSTALL` in the first option, `scatr`. Click the up arrow to close this menu, then when you click `Exploration`, again, there will be new options. Click `Scatterplot` in the `Exploration` menu.
 
 To create a simple plot of the number of girls baptized per year, we will start by selecting the variables we are interested in. Move the variable `year` to the `X-Axis` option and `girls` to the `Y-Axis` option (either by clicking and dragging or by using the arrow buttons). You will immediately see the scatterplot in the right panel.
 
