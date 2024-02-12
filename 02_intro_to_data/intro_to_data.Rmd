@@ -120,7 +120,7 @@ Which month has the highest average departure delay from an NYC airport? What
 
 ### On time departure rate for NYC airports
 
-Suppose you will be flying out of NYC and want to know which of the three major NYC airports has the best on time departure rate of departing flights. Also supposed that for you, a flight that is delayed for less than 5 minutes is basically "on time." You consider any flight delayed for 5 minutes of more to be "delayed".
+Suppose you will be flying out of NYC and want to know which of the three major NYC airports has the best on time departure rate of departing flights. Also supposed that for you, a flight that is delayed for less than 5 minutes is basically "on time". You consider any flight delayed for 5 minutes of more to be "delayed".
 
 In order to determine which airport has the best on time departure rate, you can first classify each flight as "on time" or "delayed", then calculate the percentage of flights that are on time for each origin airport.
 
