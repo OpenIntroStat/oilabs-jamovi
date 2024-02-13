@@ -54,7 +54,7 @@ There is an observed difference, but is this difference large enough to deem it 
 
 4.  Write the hypotheses for testing if the average weights are different for those who exercise at least times a week and those who don't.
 
-Open the `distrACTION` menu (click the plus sign and check the box if you don't see the menu at the top), and select `T Distribution`. For degrees of freedom, we need to enter 2 less than the total number of valid observations. Since some individuals are missing values, we can't just use the total number of observations. Use a discriptives table with both `weight` and `physical_3plus` and determine the total number of valid observations, then subtract 2 from that value. Enter this in the `df` box in the `T-Distribution` menu.
+Open the `distrACTION` menu (click the plus sign and check the box if you don't see the menu at the top), and select `T Distribution`. For degrees of freedom, we need to enter 2 less than the total number of valid observations. Since some individuals are missing values, we can't just use the total number of observations. Use a descriptives table with both `weight` and `physical_3plus` and determine the total number of valid observations, then subtract 2 from that value. Enter this in the `df` box in the `T-Distribution` menu.
 
 The plot you see shows how likely a difference of means would be under the null hypothesis. How does the value we found for the actual difference compare to the values in the plot? (You might need to change the range of x values to better suit your comparison.)
 
