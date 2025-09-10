@@ -135,7 +135,7 @@ After the equal sign, replace `$source` with `IF()`. (You could also find IF by 
 - What to do when the condition is satisfied, and
 - What to do when the condition is not satisfied.
 
-Our condition is the original variable being less than three, or `$source<5`, so we can put that first inside the parentheses after `IF()`. Next, when the variable is less than 5, we want to call that on-time, so type a comma, then `"on time"`. Otherwise we want to call it delayed, so type a comma, then `"delayed"`.
+Our condition is the original variable being less than five, or `$source<5`, so we can put that first inside the parentheses after `IF()`. Next, when the variable is less than 5, we want to call that on-time, so type a comma, then `"on time"`. Otherwise we want to call it delayed, so type a comma, then `"delayed"`.
 
 ![](img/transform2.png)
 
