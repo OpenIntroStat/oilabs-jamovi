@@ -84,7 +84,13 @@ You can find some summary information on the streak lengths using the code:
 summary(calc_streak(data$shot))
 ```
 
-Add this into the box as well.
+You can also create a histogram of the streak lengths using the code:
+
+```{r eval=FALSE, include=TRUE}
+hist(calc_streak(data$shot), main = "Streak Lengths", xlab = "Number of Shots")
+```
+
+Add these two lines of code into the box as well.
 
 1.  Describe the distribution of Kobe's streak lengths from the 2009 NBA finals. What was his typical streak length? How long was his longest streak of baskets? Make sure to include the accompanying plot in your answer.
 
@@ -160,10 +166,19 @@ To make a valid comparison between Kobe and your simulated independent shooter, 
 Now, return to the R window. To calculate the streak lengths for our new variable, use the code:
 
 ```{r eval=FALSE, include=TRUE}
+calc_streak <- function(x){
+  y <- rep(0,length(x))
+  y[x == "H"] <- 1
+  y <- c(0, y, 0)
+  wz <- which(y == 0)
+  streak <- diff(wz) - 1
+  return(streak)
+}
+
 calc_streak(data$sim_basket)
 ```
 
-to see all the streak lengths and
+to see all the streak lengths and also add:
 
 ```{r eval=FALSE, include=TRUE}
 summary(calc_streak(data$sim_basket))
