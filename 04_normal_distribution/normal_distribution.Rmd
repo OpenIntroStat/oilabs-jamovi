@@ -21,7 +21,7 @@ Here we'll use the graphical tools of jamovi to assess the normality of our data
 
 ### Load module
 
-In this lab, we will use the `distrACTION` module in jamovi, which contains information on distributions. Click the plus button at the top right part of the screen, and add the distrACTION module to jamovi. When you do this, you will see a new icon in the top bar.
+In this lab, we will use the `distrACTION` module in jamovi, which contains information on distributions. Click the plus button at the top right part of the screen, and add the `distrACTION` module to jamovi. When you do this, you will see a new icon in the top bar.
 
 ### The data
 
@@ -72,7 +72,7 @@ We can answer this by simulating data from a normal distribution. Make a note of
 
 Even better than comparing the original plot to a single plot generated from a normal distribution is to compare it to more plots. Using the same method, create `sim_norm2`, `sim_norm3`, and so on, until you have a collection of variables which are all normally distributed.
 
-4.  Does the normal probability plot for the calories from fat look similar to the plots created for the simulated data?
+4.  Does the normal probability plot (Q-Q plot) for the calories from fat look similar to the plots created for the simulated data?
     That is, do the plots provide evidence that the calories from fat are nearly normal?
 
 5.  Using the same technique, determine whether or not the calories from McDonald's menu appear to come from a normal distribution.
@@ -87,7 +87,8 @@ Once you decide that a random variable is approximately normal, you can answer a
 Take, for example, the question of, "What is the probability that a randomly chosen Dairy Queen product has more than 600 calories from fat?"
 
 If we assume that the calories from fat from Dairy Queen's menu are normally distributed (a very close approximation is also okay), we can find this probability by calculating a Z score and consulting a Z table (also called a normal probability table).
-In jamovi, this is done in the `Compute probability` section of the Normal menu. Within this menu, make sure the mean and standard deviation are correct, then check the `Compute probability` box. Select the third button and set x1 to 0 and x2 to 600.
+
+In jamovi, this can be done using the `distrACTION` module.  Under the Analyses menu, click on the "distrACTION" icon.  In the drop-down menu, select the option for "Normal Distribution".  In the Normal Distirbution options, click the checkbox next to "Compute probability", and enter the values for the mean and standard deviation. Now, select the third radio button for `P(x1 <= X <= x2)`, and set `x1` to 0 and `x2` to 600.
 
 Assuming a normal distribution has allowed us to calculate a theoretical probability.
 If we want to calculate the probability empirically, we need to determine how many observations fall above 600. We could do this by creating a new variable which is 0 or 1 depending on whether `cal_fat` is greater than 600, then take the mean of this column.
@@ -104,10 +105,10 @@ The closer that your distribution is to being normal, the more accurate the theo
 7.  Now let's consider some of the other variables in the dataset.
     Out of all the different restaurants, which ones' distribution is the closest to normal for sodium?
 
-8.  Note that some of the normal probability plots for sodium distributions seem to have a stepwise pattern.
+8.  Note that some of the normal probability plots (Q-Q plots) for sodium distributions seem to have a stepwise pattern.
     Why do you think this might be the case?
 
-9.  As you can see, normal probability plots can be used both to assess normality and visualize skewness.
+9.  As you can see, normal probability plots (Q-Q plots) can be used both to assess normality and visualize skewness.
     Make a normal probability plot for the total carbohydrates from a restaurant of your choice.
     Based on this normal probability plot, is this variable left skewed, symmetric, or right skewed?\
     Use a histogram to confirm your findings.
