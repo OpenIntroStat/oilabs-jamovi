@@ -68,7 +68,7 @@ This means 20,000 (20%) of the population think the work scientists do does not 
 
 The name of the data frame is `global_monitor` and the name of the variable that contains responses to the question *"Do you believe that the work scientists do benefit people like you?"* is `scientist_work`. The data is [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/05a_sampling_distributions/more/global_monitor.csv).
 
-We can quickly visualize the distribution of these responses using a bar plot. You can find this in the `Exploration` menu, by clicking `Bar plot` in `Plots`.
+We can quickly visualize the distribution of these responses using a bar plot. In `Exploration` menu click on `Descriptives`, and now add the `scientist_work` variable.  Next, check the checkbox next to `Bar plot` appearing under `Plots`.
 
 We can also obtain summary statistics to confirm we constructed the data frame correctly by checking the `Frequency tables` box. 
 
@@ -80,9 +80,9 @@ Because of this, we often take a sample of the population and use that to unders
 
 If you are interested in estimating the proportion of people who don't think the work scientists do benefits them, you can use the sampling function in jamovi to survey the population.
 
-Open your data set, and add a new `COMPUTED VARIABLE`. Name this variable `samp1`, and it is defined by the function `SAMPLE(scientist_work, 50)`. You won't see any data show up in the data viewer, but you can get summaries and graphs of this new variable.  Create a frequency table of this new variable to see how many people responded in each way.
+Open your data set, and add a new `COMPUTED VARIABLE`. Name this variable `sample1`, and it is defined by the function `SAMPLE(scientist_work, 50)`. You won't see any data show up in the data viewer, but you can get summaries and graphs of this new variable.  Create a frequency table of this new variable to see how many people responded in each way.
 
-This command collects a simple random sample of size 50 from the global_monitor dataset, and assigns the result to `samp1`. This is similar to randomly drawing names from a hat that contains the names of all in the population. Working with these 50 names is considerably simpler than working with all 100,000 people in the population.
+This command collects a simple random sample of size 50 from the `scientist_work` variable, and assigns the result to `sample1`. This is similar to randomly drawing names from a hat that contains the names of all in the population. Working with these 50 names is considerably simpler than working with all 100,000 people in the population.
 
 <!--Open the `Binomial` menu in the Discrete section. Since 20% of our population doesn't believe science benefits society, change the probability of success to 0.2. We are going to sample 50 people from the population, so change the number of trials to 50. (Note: We're not quite sampling *from* the population here - we're going to simulate 50 individuals, each of whom has a 20% chance of saying they don't think the work scientists do benefits them. If we actually sampled from the population, the chance of the second person making that statement would change ever so slightly based on the results from the first sample.)
 
@@ -135,7 +135,7 @@ Because the sample proportion is an unbiased estimator, the sampling distributio
 
 In the remainder of this section, you will work on getting a sense of the effect that sample size has on your sampling distribution.
 
-1.  Use the app below to create sampling distributions of proportions of *Doesn't benefit* from samples of size 10, 50, and 100. Use 5,000 simulations. What does each observation in the sampling distribution represent? How does the mean, standard error, and shape of the sampling distribution change as the sample size increases? How (if at all) do these values change if you increase the number of simulations? (You do not need to include plots in your answer.)
+1.  Use the app below to create sampling distributions of proportions of *Doesn't benefit* from samples of size 10, 50, and 100. Use 5,000 simulations (which is represented by the box titled "Number of samples"). What does each observation in the sampling distribution represent? How does the mean, standard error, and shape of the sampling distribution change as the sample size increases? How (if at all) do these values change if you increase the number of simulations? (You do not need to include plots in your answer.)
 
 ```{r shiny, echo=FALSE, eval=TRUE, results = TRUE}
 shinyApp(
