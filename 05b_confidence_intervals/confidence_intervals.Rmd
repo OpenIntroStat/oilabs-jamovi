@@ -90,7 +90,7 @@ This has been done 1000 times, and the results are [here](https://github.com/Ope
 
 Now, open a descriptives analysis and plot a histogram of $\hat{p}$. Open the `Statistics` submenu, and check the `Percentiles` box. Since we want a 95% confidence interval, we want to cut at the 2.5 and 97.5 percentiles, so enter `2.5, 97.5` in the box. You will see these values show up in the descriptive statistics table to the right.
 
-To recap: even though we don't know what the full population looks like, we're 95% confident that the true proportion of US adults who think climate change affects their local community is between the two bounds reported.
+To recap: even though we don't know what the full population looks like, we're 95% confident that the true proportion of US adults who think climate change affects their local community is between the two bounds reported as the 2.5th percentile and the 97.5th percentile.
 
 ## Confidence levels
 
@@ -105,7 +105,7 @@ In this case, you have the rare luxury of knowing the true population proportion
     What proportion of those intervals would you expect to capture the true population mean?
     Why?
 
-In the next part of the lab, you will collect many samples to learn more about how sample proportions and confidence intervals constructed based on those samples vary from one sample to another.
+In the next part of the lab, you will collect many samples to learn more about how sample proportions and confidence intervals constructed based on those samples vary from one sample to another.  This process would look like:
 
 -   Obtain a random sample.
 -   Calculate the sample proportion, and use these to calculate and store the lower and upper bounds of the confidence intervals.
@@ -233,7 +233,7 @@ shinyApp(
     Would you expect a confidence interval at this level to be wider or narrower than the confidence interval you calculated at the 95% confidence level?
     Explain your reasoning.
 
-2.  Using data from the one sample you have (`samp`), find a confidence interval for the proportion of US Adults who think climate change is affecting their local community with a confidence level of your choosing (other than 95%) and interpret it.
+2.  Using data from the one sample you have (`samp`), calculate a confidence interval for the proportion of US adults who think climate change is affecting their local community with a confidence level of your choosing (other than 95%).  The number of people in this sample who think climate change is affecting their local community was determined earlier, in Exercise 1.  Also provide an interpretation of your confidence interval.
 
 3.  Using the app, calculate 50 confidence intervals at the confidence level you chose in the previous question, and plot all intervals on one plot, and calculate the proportion of intervals that include the true population proportion.
     How does this percentage compare to the confidence level selected for the intervals?
