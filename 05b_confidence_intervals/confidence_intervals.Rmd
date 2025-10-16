@@ -75,7 +75,7 @@ The term **bootstrapping** comes from the phrase "pulling oneself up by one's bo
 In this case the impossible task is estimating a population parameter (the unknown population proportion), and we'll accomplish it using data from only the given sample.
 Note that this notion of saying something about a population parameter using only information from an observed sample is the crux of statistical inference, it is not limited to bootstrapping.
 
-In essence, bootstrapping assumes that there are more of observations in the populations like the ones in the observed sample.
+In essence, bootstrapping assumes that there are more of observations in the population like the ones in the observed sample.
 So we "reconstruct" the population by resampling from our sample, with replacement.
 The bootstrapping scheme is as follows:
 
@@ -84,7 +84,7 @@ The bootstrapping scheme is as follows:
 -   **Step 3.** Repeat steps (1) and (2) many times to create a bootstrap distribution - a distribution of bootstrap statistics.
 -   **Step 4.** Calculate the bounds of the XX% confidence interval as the middle XX% of the bootstrap distribution.
 
-This process will find the 95 percent confidence interval for proportion of US adults who think climate change affects their local community.
+This process will find the 95% confidence interval for proportion of US adults who think climate change affects their local community.
 
 This has been done 1000 times, and the results are [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/05b_confidence_intervals/more/sample_props60.csv). Open this data and take a look. The value for $\hat{p}$ is determined for each sample. 
 
