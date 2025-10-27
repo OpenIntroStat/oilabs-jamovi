@@ -19,7 +19,7 @@ library(ggplot2)
 
 ### The data
 
-You will be analyzing the same dataset as in the previous lab, where you delved into a sample from the Youth Risk Behavior Surveillance System (YRBSS) survey, which uses data from high schoolers to help discover health patterns. The dataset is called `yrbss`, and you can find it [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/06_inf_for_categorical_data/more/yrbss.csv).
+In this lab, you'll be analyzing data from the Youth Risk Behavior Surveillance System (YRBSS) survey.  The YRBSS survey includes data from high schoolers to help discover health patterns. The dataset is called `yrbss`, and you can find it [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/06_inf_for_categorical_data/more/yrbss.csv).
 
 1.  What are the counts within each category for the amount of days these students have texted while driving within the past 30 days?
 
