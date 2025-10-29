@@ -21,29 +21,29 @@ library(ggplot2)
 
 In this lab, you'll be analyzing data from the Youth Risk Behavior Surveillance System (YRBSS) survey.  The YRBSS survey includes data from high schoolers to help discover health patterns. The dataset is called `yrbss`, and you can find it [here](https://github.com/OpenIntroStat/oilabs-jamovi/raw/main/06_inf_for_categorical_data/more/yrbss.csv).
 
+We'll first look at the number of days students texted while driving, during the past 30 days. Double-click on the heading of the `text_while_driving_30d` data column to open properties of the variable.  Change the measure type to "ordinal", and now re-order the values of the variable to be in increasing order (0 first, then 1-2, then 3-5, etc, with "did not drive" as the final value).
+
 1.  What are the counts within each category for the amount of days these students have texted while driving within the past 30 days?
 
-2.  What is the proportion of people who have texted while driving every day in the past 30 days and never wear helmets?
+Now, create a new variable that specifies whether an individual has texted every day while driving over the past 30 days or not.  Call this new variable `text_ind` and use the `IF()` function.  The new variable should have values either `yes` or `no`. Note that `text_while_driving_30d` is not a numeric variable, so in your `IF()` function, you will need to use "30" inside of quotation marks, because it is using the character string "30", not the number 30.
 
-Remember that you can use the `filter` to limit the dataset to just non-helmet wearers.
-
-Also, it may be easier to calculate the proportion if you create a new variable that specifies whether the individual has texted every day while driving over the past 30 days or not.
-Create this new variable, and call it `text_ind` and use the `IF()` function, where the values are either `yes` or `no`. We'll see that this isn't strictly necessary, but it makes some things easier to see. (Note: `text_while_driving_30d` is not a numeric variable, so in your IF() function, you will need to use "30" instead of 30 because it is using the character string 30, not the number.)
+2.  What is the proportion of people who have texted while driving every day in the past 30 days and also never wear helmets?  It may be helpful to use `filter` to answer this question, but it's not necessary.
 
 ## Inference on proportions
 
-When summarizing the YRBSS, the Centers for Disease Control and Prevention seeks insight into the population *parameters*.
-To do this, you can answer the question, "What proportion of people in your sample reported that they have texted while driving each day for the past 30 days?" with a statistic; while the question "What proportion of people on earth have texted while driving each day for the past 30 days?" is answered with an estimate of the parameter.
+When summarizing the YRBSS, the Centers for Disease Control and Prevention seeks insight into the population **parameters**.
+
+To do this, you can answer the question, "What proportion of people in your sample reported that they have texted while driving each day for the past 30 days?" with a **statistic**; while the question "What proportion of people on earth have texted while driving each day for the past 30 days?" is answered with an estimate of the **parameter**.
 
 The inferential tools for estimating population proportion are analogous to those used for means in the last chapter: the confidence interval and the hypothesis test.
 
-Click `Frequencies`, then `2 Outcomes Binomial Test`. Put `text_ind` in the Variables box, and check the box `Confidence interval` in the `Additional Statistics` section. Take a look at the results to the right of your screen. You should see a table of results - we will focus on the section under the heading `95% Confidence Interval`. You should see a `Lower` and `Upper` value for each of `yes` and `no`. These values give the upper and lower bounds for the 95% confidence interval for each value of `text_ind`.
+Under the `Exploration` menu click on the `Frequencies` icon, then `2 Outcomes Binomial Test`. Put `text_ind` in the Variables box, and check the box `Confidence interval` in the `Additional Statistics` section. Take a look at the results to the right of your screen. You should see a table of results - we will focus on the section under the heading `95% Confidence Interval`. You should see a `Lower` and `Upper` value for each of `yes` and `no`. These values give the upper and lower bounds for the 95% confidence interval for each value of `text_ind`.
 
-Now, create a new `Binomial Test` analysis, but this time use `text_while_driving_30d` as the variable instead, and include the confidence intervals. Look at the confidence interval in the row for `30` - the values should be the same.
+Now, create a new `2 Outcomes Binomial Test` analysis, but this time use `text_while_driving_30d` as the variable instead, and include the confidence intervals. Look at the confidence interval in the row for `30`.  Any differences you observe are due to missing values in the `text_while_driving_30d` variable.
 
-1.  What is the margin of error for the estimate of the proportion of non-helmet wearers that have texted while driving each day for the past 30 days based on this survey?
+1.  What is the margin of error for the estimate of the proportion of people who are non-helmet wearers and have texted while driving each day for the past 30 days?
 
-2.  Calculate confidence intervals for two other categorical variables (you'll need to decide which level to call "success", and report the associated margins of error. Interpret the interval in context of the data.
+2.  Calculate confidence intervals for two other categorical variables (you'll need to decide which level to call "success"), and report the associated margins of error. Also interpret each interval in context of the data.
 
 ## How does the proportion affect the margin of error?
 
@@ -64,7 +64,7 @@ The second is the margin of error (`me`) associated with each of these values of
 
 Lastly, you can plot the two variables against each other to reveal their relationship. Do this by creating a scatterplot. Put `p` on the x-axis and `me` on the y-axis.
 
-1.  Describe the relationship between `p` and `me`. Include the margin of error vs. population proportion plot you constructed in your answer. For a given sample size, for which value of `p` is margin of error maximized?
+1.  Describe the relationship between `p` and `me`. For a given sample size, for which value of `p` is margin of error maximized?
 
 ## Success-failure condition
 
