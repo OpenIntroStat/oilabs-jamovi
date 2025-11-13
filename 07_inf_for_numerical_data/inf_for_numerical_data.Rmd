@@ -31,16 +31,14 @@ The meaning of each variable can be found by visiting [this page](https://www.op
 
 You will first start with analyzing the weight of the participants in kilograms: `weight`.
 
-Using visualization and summary statistics, describe the distribution of weights.
-
-1.  How many observations are we missing weights from?
+1.  Using visualization and summary statistics, describe the distribution of the `weight` variable.  How many observations are we missing weights from?
 
 Next, consider the possible relationship between a high schooler's weight and their physical activity.
 Plotting the data is a useful first step because it helps us quickly visualize trends, identify strong associations, and develop research questions.
 
 First, let's create a new variable `physical_3plus`, which will be coded as either "yes" if the student is physically active for *at least* 3 days a week (`physically_active_7d`>2), and "no" if not. (Make sure the variable is set to be nominal.)
 
-2.  Make a side-by-side violin plots of `physical_3plus` and `weight`. (In the plots pull down in Descriptives.) Is there a relationship between these two variables? What did you expect and why?
+2.  Make a side-by-side violin plots of `weight`, for each level of `physical_3plus`.  This is done using Descriptives, and placing `weight` in the "Variables" box and `physical_3plus` in the "Split by" box.  Also make sure to check the box next to "Violin".  Is there a relationship between these two variables?  What did you expect and why?
 
 Box plots show how the medians of the two distributions compare, but we can also compare the means of the distributions. In a descriptive statistics table, determine the mean value for `weight` for each group in the `physical_3plus` variable.
 
@@ -52,21 +50,23 @@ There is an observed difference, but is this difference large enough to deem it 
     Comment on each.
     You can determine the group sizes in the descriptive statistics table.
 
-4.  Write the hypotheses for testing if the average weights are different for those who exercise at least times a week and those who don't.
+4.  Write the hypotheses for testing if the average weights are different for those who exercise at least three times a week, and those who don't.
 
-Open the `distrACTION` menu (click the plus sign and check the box if you don't see the menu at the top), and select `T Distribution`. For degrees of freedom, we need to enter 2 less than the total number of valid observations. Since some individuals are missing values, we can't just use the total number of observations. Use a descriptives table with both `weight` and `physical_3plus` and determine the total number of valid observations, then subtract 2 from that value. Enter this in the `df` box in the `T-Distribution` menu.
+<!--
+Open the `distrACTION` menu (click the plus sign and check the box if you don't see the menu at the top), and select `T-Distribution`. For degrees of freedom, we need to enter 2 less than the total number of valid observations. Since some individuals are missing values, we can't just use the total number of observations. Use a descriptives table with both `weight` and `physical_3plus` and determine the total number of valid observations, then subtract 2 from that value. Enter this in the `df` box in the `T-Distribution` menu.
 
 The plot you see shows how likely a difference of means would be under the null hypothesis. How does the value we found for the actual difference compare to the values in the plot? (You might need to change the range of x values to better suit your comparison.)
 
 In the options, click to highlight `Compute probability`, then replace $x_1$ with your observed difference. (The choice of $P(X \leq x_1)$ is what we want to keep.) You will see a (rounded) value show up, and the area will be highlighted (if enough is visible to be highlighted). (This is actually half of the p-value, since we did not specify a direction, and so are doing a t-tailed test.)
+-->
 
-While we were able to determine an approximate p-value using this package, jamovi will let us calculate a more precise value directly. Open the `T-Tests` menu, then select `Independent Samples T-Test`. Select `weight` as your dependent variable and `physical_3plus` as your `Grouping Variable`. This will create a table on the right hand side.
+Now you'll use jamovi to conduct a 2-sample $t$-test.  Under the Analyes menu click on the icon for "T-Tests".  Then, click on the option for "Independent Samples T-Test".  Select `weight` as the Dependent Variable and `physical_3plus` as the Grouping Variable.  This will create a table displaying the results of the 2-sample $t$-test on the right.
 
-5. What is the value in the `t` column?
+5. What is the value of the $T$ test statistic?
 
-6. What is the p-value? How does this compare to the value from the t-distribution graph?
+6. What is the p-value?
 
-Next we can add a confidence interval to our table. Check the `Mean difference` box, and then the `Confidence interval` box, and leave the value at 95.0. You will now see the values for the confidence interval in your table.
+Next we can add a confidence interval to our table. Check the "Mean difference" box which appears under Additional Statistics., and then click the box next to "Confidence interval".  Leave the value for the confidence level at 95%. You will now see the values for the confidence interval in your table.
 
 7.  Record the confidence interval for the difference between the weights of those who exercise at least three times a week and those who don't, and interpret this interval in context of the data.
 
@@ -74,7 +74,7 @@ Next we can add a confidence interval to our table. Check the `Mean difference` 
 
 ## More Practice
 
-9.  Calculate a 95% confidence interval for the average height in meters (`height`) and interpret it in context.
+9.  Calculate a 95% confidence interval for the average height in meters (`height`) and interpret it in context.  For a single variable, this can be done using the Descriptives analysis.
 
 10. Calculate a new confidence interval for the same parameter at the 90% confidence level.
     Comment on the width of this interval versus the one obtained in the previous exercise.
