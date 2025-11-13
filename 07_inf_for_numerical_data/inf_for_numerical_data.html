@@ -1262,22 +1262,6 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
-<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
-// v0.0.1
-// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
-
-document.addEventListener('DOMContentLoaded', function() {
-  const codeList = document.getElementsByClassName("sourceCode");
-  for (var i = 0; i < codeList.length; i++) {
-    var linkList = codeList[i].getElementsByTagName('a');
-    for (var j = 0; j < linkList.length; j++) {
-      if (linkList[j].innerHTML === "") {
-        linkList[j].setAttribute('aria-hidden', 'true');
-      }
-    }
-  }
-});
-</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -1566,14 +1550,13 @@ div.tocify {
 <div id="exploratory-data-analysis" class="section level2">
 <h2>Exploratory data analysis</h2>
 <p>You will first start with analyzing the weight of the participants in kilograms: <code>weight</code>.</p>
-<p>Using visualization and summary statistics, describe the distribution of weights.</p>
 <ol style="list-style-type: decimal">
-<li>How many observations are we missing weights from?</li>
+<li>Using visualization and summary statistics, describe the distribution of the <code>weight</code> variable. How many observations are we missing weights from?</li>
 </ol>
 <p>Next, consider the possible relationship between a high schooler’s weight and their physical activity. Plotting the data is a useful first step because it helps us quickly visualize trends, identify strong associations, and develop research questions.</p>
 <p>First, let’s create a new variable <code>physical_3plus</code>, which will be coded as either “yes” if the student is physically active for <em>at least</em> 3 days a week (<code>physically_active_7d</code>&gt;2), and “no” if not. (Make sure the variable is set to be nominal.)</p>
 <ol start="2" style="list-style-type: decimal">
-<li>Make a side-by-side violin plots of <code>physical_3plus</code> and <code>weight</code>. (In the plots pull down in Descriptives.) Is there a relationship between these two variables? What did you expect and why?</li>
+<li>Make a side-by-side violin plots of <code>weight</code>, for each level of <code>physical_3plus</code>. This is done using Descriptives, and placing <code>weight</code> in the “Variables” box and <code>physical_3plus</code> in the “Split by” box. Also make sure to check the box next to “Violin”. Is there a relationship between these two variables? What did you expect and why?</li>
 </ol>
 <p>Box plots show how the medians of the two distributions compare, but we can also compare the means of the distributions. In a descriptive statistics table, determine the mean value for <code>weight</code> for each group in the <code>physical_3plus</code> variable.</p>
 <p>There is an observed difference, but is this difference large enough to deem it “statistically significant”? In order to answer this question we will conduct a hypothesis test.</p>
@@ -1582,17 +1565,21 @@ div.tocify {
 <h2>Inference</h2>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Are all conditions necessary for inference satisfied? Comment on each. You can determine the group sizes in the descriptive statistics table.</p></li>
-<li><p>Write the hypotheses for testing if the average weights are different for those who exercise at least times a week and those who don’t.</p></li>
+<li><p>Write the hypotheses for testing if the average weights are different for those who exercise at least three times a week, and those who don’t.</p></li>
 </ol>
-<p>Open the <code>distrACTION</code> menu (click the plus sign and check the box if you don’t see the menu at the top), and select <code>T Distribution</code>. For degrees of freedom, we need to enter 2 less than the total number of valid observations. Since some individuals are missing values, we can’t just use the total number of observations. Use a descriptives table with both <code>weight</code> and <code>physical_3plus</code> and determine the total number of valid observations, then subtract 2 from that value. Enter this in the <code>df</code> box in the <code>T-Distribution</code> menu.</p>
-<p>The plot you see shows how likely a difference of means would be under the null hypothesis. How does the value we found for the actual difference compare to the values in the plot? (You might need to change the range of x values to better suit your comparison.)</p>
-<p>In the options, click to highlight <code>Compute probability</code>, then replace <span class="math inline">\(x_1\)</span> with your observed difference. (The choice of <span class="math inline">\(P(X \leq x_1)\)</span> is what we want to keep.) You will see a (rounded) value show up, and the area will be highlighted (if enough is visible to be highlighted). (This is actually half of the p-value, since we did not specify a direction, and so are doing a t-tailed test.)</p>
-<p>While we were able to determine an approximate p-value using this package, jamovi will let us calculate a more precise value directly. Open the <code>T-Tests</code> menu, then select <code>Independent Samples T-Test</code>. Select <code>weight</code> as your dependent variable and <code>physical_3plus</code> as your <code>Grouping Variable</code>. This will create a table on the right hand side.</p>
+<!--
+Open the `distrACTION` menu (click the plus sign and check the box if you don't see the menu at the top), and select `T-Distribution`. For degrees of freedom, we need to enter 2 less than the total number of valid observations. Since some individuals are missing values, we can't just use the total number of observations. Use a descriptives table with both `weight` and `physical_3plus` and determine the total number of valid observations, then subtract 2 from that value. Enter this in the `df` box in the `T-Distribution` menu.
+
+The plot you see shows how likely a difference of means would be under the null hypothesis. How does the value we found for the actual difference compare to the values in the plot? (You might need to change the range of x values to better suit your comparison.)
+
+In the options, click to highlight `Compute probability`, then replace $x_1$ with your observed difference. (The choice of $P(X \leq x_1)$ is what we want to keep.) You will see a (rounded) value show up, and the area will be highlighted (if enough is visible to be highlighted). (This is actually half of the p-value, since we did not specify a direction, and so are doing a t-tailed test.)
+-->
+<p>Now you’ll use jamovi to conduct a 2-sample <span class="math inline">\(t\)</span>-test. Under the Analyes menu click on the icon for “T-Tests”. Then, click on the option for “Independent Samples T-Test”. Select <code>weight</code> as the Dependent Variable and <code>physical_3plus</code> as the Grouping Variable. This will create a table displaying the results of the 2-sample <span class="math inline">\(t\)</span>-test on the right.</p>
 <ol start="5" style="list-style-type: decimal">
-<li><p>What is the value in the <code>t</code> column?</p></li>
-<li><p>What is the p-value? How does this compare to the value from the t-distribution graph?</p></li>
+<li><p>What is the value of the <span class="math inline">\(T\)</span> test statistic?</p></li>
+<li><p>What is the p-value?</p></li>
 </ol>
-<p>Next we can add a confidence interval to our table. Check the <code>Mean difference</code> box, and then the <code>Confidence interval</code> box, and leave the value at 95.0. You will now see the values for the confidence interval in your table.</p>
+<p>Next we can add a confidence interval to our table. Check the “Mean difference” box which appears under Additional Statistics., and then click the box next to “Confidence interval”. Leave the value for the confidence level at 95%. You will now see the values for the confidence interval in your table.</p>
 <ol start="7" style="list-style-type: decimal">
 <li>Record the confidence interval for the difference between the weights of those who exercise at least three times a week and those who don’t, and interpret this interval in context of the data.</li>
 </ol>
@@ -1601,14 +1588,14 @@ div.tocify {
 <div id="more-practice" class="section level2">
 <h2>More Practice</h2>
 <ol start="9" style="list-style-type: decimal">
-<li><p>Calculate a 95% confidence interval for the average height in meters (<code>height</code>) and interpret it in context.</p></li>
+<li><p>Calculate a 95% confidence interval for the average height in meters (<code>height</code>) and interpret it in context. For a single variable, this can be done using the Descriptives analysis.</p></li>
 <li><p>Calculate a new confidence interval for the same parameter at the 90% confidence level. Comment on the width of this interval versus the one obtained in the previous exercise.</p></li>
 <li><p>Conduct a hypothesis test evaluating whether the average height is different for those who exercise at least three times a week and those who don’t.</p></li>
 <li><p>Now, a non-inference task: Determine the number of different options there are in the dataset for the <code>hours_tv_per_school_day</code> there are.</p></li>
 <li><p>Come up with a research question evaluating the relationship between height or weight and sleep. Formulate the question in a way that it can be answered using a hypothesis test and/or a confidence interval. Report the statistical results, and also provide an explanation in plain language. Be sure to check all assumptions, state your <span class="math inline">\(\alpha\)</span> level, and conclude in context.</p></li>
 </ol>
 <hr />
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjnz7UZMAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAb9QTFRFAAAAAAAA////////////8fHx7+/v6Ofn4+Pj4N/g39/f1tXV09bS0tXS0tXR0dTR0dTQ0NTQ0NPPz9PPztLOztHNzdHNzdHMz8/PzdDMzNDMzNDLzM/Ly8/Ly8/Ky87Kys3Jyc3Jyc3Iy8rLyMzIyMzHx8vHxsrGycjIxsrFxcnFyMfHxcnExMnExMjDw8jDxMfDw8fCwsfCwcXAwMXAwMW/wMS/v8S+v8O+vsO+vsK9vcK9vcK8v7+/vMG8vMG7vMC8u8C7u8C6ur+6ur+5ub65ub64uL23t7y2urm5tru1tbq0tLqztLmzs7iysrixtbW1srexsbewsbawsLavsLWvr7Wur7SusLOvrrStrrOtr7KvrbOsrLKrr6+vq7GqrKuro6Ghn6OenqCdn5+fnp2dn5aalpmWmJaXk5iTkZSRkZORkY+Pj4+PiYyJjoeLhIaEhIWEgoWChIGCgICAfX98fH98eXx5dnN0cHJvcHBwbmxsY19hYGBgXV5dUFFQUFBQQ0RDQEBAPj8+Pzc5NTY1MjMxMDAwMS0uLS0tKSkpKCkoKCgoKicnJCQkIx8gICAgGxsbEBAQDg4ODQ4N9qQJ7gAAAAR0Uk5T/wAKDnDBpeYAAANgSURBVHjatZb7VxJBFMdvNVIR2raFGRCr1FqbihL5TMLM9zPNNE1N0x5KmSZpUShiRUm1uPIHd2dhGd3d4zni8fvLeL5z9uPd78y9C5yBE9EpAOjt6gg2+qslsUxwORwud6koef0Nwfau3oHhp+OTk1Mvji5QuW3NdT7J47bzXKHNVniRt1/3SL7a5jZKHh2fnMqTjNx73nLBzq1spQGV3lrmrrjFKv99JA+OjE5oJa/vAGpnXYcw99HpQK7o5EO7kNPuIu/wVPqb27v6h0ayJS8kAeKRSBwgucCeN/oMHKzzig5uEwCUaDgQCEcVANisueqpqg129GAYaskv9yBmJShrDPYYwegzcKOv3Em5SthCMppHdLLGIfoaWjt7sWQKTkIUdwDoNiQZQPXPVVSc03wG9ksCj9yEleRkSWDNvFvyN2PJT8Ywi3WIXdDAJAa5PFV/VkZ1Z30Grr5pDyE3Wy4jL17xeOtbu/qGRiempnbAynatsKM9T/0K+fu3z7L8LuMzsOTmdkEpIQdkUWCXuy75H3T0DtIsIE7dKKiBkDhoz6Nf8Fr+QMgr+VfGZ2CxeAUgTHSaB1i2i76mNsyCgiPUBBRdIzkA+gX/5D8YsyyfVX0GLru8BQoGEYjF4+HM8h4fVmCLL6VZ9A+PHQomj38HVPB5HVjg0hBFIFDFp4EqSl87fdFdWfuws2949NAoSPfsbUJmZFkfhasIAEtMQMoaSM0n8HpMp+bVLApdkj+IFw7B2cMDMB4exiuvrv6V3+oPz2kDwHdRc84t6hvYHLc0MF4rYn7d0F+VUV8LqH9k8P4GiRga5MbMzAXmG6OwlKTCGAVd9FEcuaXZ4WVPLbvQ/5/mhNzhISEJkIhGEvohZPTZddsEheSu23RcXUgKr1uZt/5R5rrlMzbF4hBmYd4gd5vaewZo5+Uz6O+oLW09pKXzBOMQmjMbQiG7p7oBG48OobzAsCbwG0guYVyrOjaFj3BMfXFd2j/oLWEF4AfnXINj65Pj0obu08RdewMHlekP+ofpBjEnu/i5/R/TEO/UcyGDJUYu2zRLQ7BzIe3zv8jZBczBrDCz57URAqb6+dxdfJkrstmKOPzB8mwbDGJBGES0TVNtL7UILqfTJbQsMax5xUafgU9ep08Ge+o/RyjkZSMkFewAAAAASUVORK5CYII=" style="border-width:0" alt="Creative Commons License" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjnz7UZMAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAb9QTFRFAAAAAAAA////////////8fHx7+/v6Ofn4+Pj4N/g39/f1tXV09bS0tXS0tXR0dTR0dTQ0NTQ0NPPz9PPztLOztHNzdHNzdHMz8/PzdDMzNDMzNDLzM/Ly8/Ly8/Ky87Kys3Jyc3Jyc3Iy8rLyMzIyMzHx8vHxsrGycjIxsrFxcnFyMfHxcnExMnExMjDw8jDxMfDw8fCwsfCwcXAwMXAwMW/wMS/v8S+v8O+vsO+vsK9vcK9vcK8v7+/vMG8vMG7vMC8u8C7u8C6ur+6ur+5ub65ub64uL23t7y2urm5tru1tbq0tLqztLmzs7iysrixtbW1srexsbewsbawsLavsLWvr7Wur7SusLOvrrStrrOtr7KvrbOsrLKrr6+vq7GqrKuro6Ghn6OenqCdn5+fnp2dn5aalpmWmJaXk5iTkZSRkZORkY+Pj4+PiYyJjoeLhIaEhIWEgoWChIGCgICAfX98fH98eXx5dnN0cHJvcHBwbmxsY19hYGBgXV5dUFFQUFBQQ0RDQEBAPj8+Pzc5NTY1MjMxMDAwMS0uLS0tKSkpKCkoKCgoKicnJCQkIx8gICAgGxsbEBAQDg4ODQ4N9qQJ7gAAAAR0Uk5T/wAKDnDBpeYAAANgSURBVHjatZb7VxJBFMdvNVIR2raFGRCr1FqbihL5TMLM9zPNNE1N0x5KmSZpUShiRUm1uPIHd2dhGd3d4zni8fvLeL5z9uPd78y9C5yBE9EpAOjt6gg2+qslsUxwORwud6koef0Nwfau3oHhp+OTk1Mvji5QuW3NdT7J47bzXKHNVniRt1/3SL7a5jZKHh2fnMqTjNx73nLBzq1spQGV3lrmrrjFKv99JA+OjE5oJa/vAGpnXYcw99HpQK7o5EO7kNPuIu/wVPqb27v6h0ayJS8kAeKRSBwgucCeN/oMHKzzig5uEwCUaDgQCEcVANisueqpqg129GAYaskv9yBmJShrDPYYwegzcKOv3Em5SthCMppHdLLGIfoaWjt7sWQKTkIUdwDoNiQZQPXPVVSc03wG9ksCj9yEleRkSWDNvFvyN2PJT8Ywi3WIXdDAJAa5PFV/VkZ1Z30Grr5pDyE3Wy4jL17xeOtbu/qGRiempnbAynatsKM9T/0K+fu3z7L8LuMzsOTmdkEpIQdkUWCXuy75H3T0DtIsIE7dKKiBkDhoz6Nf8Fr+QMgr+VfGZ2CxeAUgTHSaB1i2i76mNsyCgiPUBBRdIzkA+gX/5D8YsyyfVX0GLru8BQoGEYjF4+HM8h4fVmCLL6VZ9A+PHQomj38HVPB5HVjg0hBFIFDFp4EqSl87fdFdWfuws2949NAoSPfsbUJmZFkfhasIAEtMQMoaSM0n8HpMp+bVLApdkj+IFw7B2cMDMB4exiuvrv6V3+oPz2kDwHdRc84t6hvYHLc0MF4rYn7d0F+VUV8LqH9k8P4GiRga5MbMzAXmG6OwlKTCGAVd9FEcuaXZ4WVPLbvQ/5/mhNzhISEJkIhGEvohZPTZddsEheSu23RcXUgKr1uZt/5R5rrlMzbF4hBmYd4gd5vaewZo5+Uz6O+oLW09pKXzBOMQmjMbQiG7p7oBG48OobzAsCbwG0guYVyrOjaFj3BMfXFd2j/oLWEF4AfnXINj65Pj0obu08RdewMHlekP+ofpBjEnu/i5/R/TEO/UcyGDJUYu2zRLQ7BzIe3zv8jZBczBrDCz57URAqb6+dxdfJkrstmKOPzB8mwbDGJBGES0TVNtL7UILqfTJbQsMax5xUafgU9ep08Ge+o/RyjkZSMkFewAAAAASUVORK5CYII=" alt="Creative Commons License" style="border-width:0" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </div>
 
 
