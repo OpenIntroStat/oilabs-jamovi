@@ -1551,17 +1551,20 @@ div.tocify {
 </div>
 
 
-<p>The Human Freedom Index is a report that attempts to summarize the idea of “freedom” through a bunch of different variables for many countries around the globe. It serves as a rough objective measure for the relationships between the different types of freedom - whether it’s political, religious, economical or personal freedom - and other social and economic circumstances. The Human Freedom Index is an annually co-published report by the Cato Institute, the Fraser Institute, and the Liberales Institut at the Friedrich Naumann Foundation for Freedom.</p>
-<p>In this lab, you’ll be analysing data from the Human Freedom Index reports. Your aim will be to summarize a few of the relationships within the data both graphically and numerically in order to find which variables can help tell a story about freedom.</p>
+<p>The Human Freedom Index is a report that attempts to summarize the idea of “freedom” using different variables for many countries around the globe. It serves as a rough objective measure for the relationships between the different types of freedom - whether it’s political, religious, economical or personal freedom - and other social and economic circumstances. The Human Freedom Index is an annually co-published report by the Cato Institute, the Fraser Institute, and the Liberales Institut at the Friedrich Naumann Foundation for Freedom.</p>
+<p>In this lab, you’ll be analyzing data from the Human Freedom Index reports. Your aim will be to summarize a few of the relationships within the data both graphically and numerically in order to find which variables can help tell a story about freedom.</p>
 <div id="getting-started" class="section level2">
 <h2>Getting Started</h2>
 <div id="the-data" class="section level3">
 <h3>The data</h3>
 <p>The data we’re working with is <a href="https://openintrostat.github.io/oilabs-jamovi/08_simple_regression/more/hfi.csv">here</a>, and it’s called <code>hfi</code>, short for Human Freedom Index. Information about the variables can be seen <a href="https://www.openintro.org/data/index.php?data=hfi">here</a>.</p>
 <ol style="list-style-type: decimal">
-<li><p>What are the dimensions of the dataset? What does each row represent?</p></li>
-<li><p>The dataset spans a lot of years, but we are only interested in data from year 2016. Filter the data <code>hfi</code> data frame for year 2016.</p></li>
-<li><p>What type of plot would you use to display the relationship between the personal freedom score, <code>pf_score</code>, and <code>pf_expression_control</code>? Plot this relationship using the variable <code>pf_expression_control</code> as the predictor. Does the relationship look linear? If you knew a country’s <code>pf_expression_control</code>, or its score out of 10, with 0 being the most, of political pressures and controls on media content, would you be comfortable using a linear model to predict the personal freedom score?</p></li>
+<li>What are the dimensions of the dataset? What does each row represent?</li>
+</ol>
+<p>The dataset spans a lot of years, but we are only interested in data from year 2016. Filter the data <code>hfi</code> data frame for year 2016.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>What type of plot would you use to display the relationship between the personal freedom score, <code>pf_score</code>, and <code>pf_expression_control</code>? Plot this relationship using the variable <code>pf_expression_control</code> as the predictor.</p></li>
+<li><p>Does the relationship look linear? If you knew a country’s <code>pf_expression_control</code> (political pressures and controls on media content) as a score out of 10, would you be comfortable using a linear model to predict the personal freedom score?</p></li>
 </ol>
 <p>If the relationship looks linear, we can quantify the strength of the relationship with the correlation coefficient. Click <code>Regression</code>, then <code>Correlation Matrix</code>. Add <code>pf_score</code>, and <code>pf_expression_control</code> as variables. You will see the correlation next to the <code>Pearson&#39;s r</code> in the table. (There are two rows with Pearson’s r, but the second one tells us the correlation between our two variables.)</p>
 </div>
@@ -1570,7 +1573,7 @@ div.tocify {
 <h2>Sum of squared residuals</h2>
 <p>Think back to the way that we described the distribution of a single variable. Recall that we discussed characteristics such as center, spread, and shape. It’s also useful to be able to describe the relationship of two numerical variables, such as <code>pf_expression_control</code> and <code>pf_score</code> above.</p>
 <ol start="4" style="list-style-type: decimal">
-<li>Looking at your plot from the previous exercise, describe the relationship between these two variables. Make sure to discuss the form, direction, and strength of the relationship as well as any unusual observations.</li>
+<li>Looking at your plot from the previous exercise, describe the relationship between these two variables. Make sure to discuss the direction and strength of the relationship, the value of the correlation coefficient, as well as any unusual observations.</li>
 </ol>
 <p>Just as you’ve used the mean and standard deviation to summarize a single variable, you can summarize the relationship between these two variables by finding the line that best follows their association.</p>
 <p>Recall that the residuals are the difference between the observed values and the values predicted by the line:</p>
@@ -1583,8 +1586,7 @@ div.tocify {
 </div>
 <div id="the-linear-model" class="section level2">
 <h2>The linear model</h2>
-<p>It is rather cumbersome to try to get the correct least squares line, i.e. the line that minimizes the sum of squared residuals, through trial and error.</p>
-<p>Instead, you can use jamovi to fit the linear model (a.k.a. regression line). Click <code>Regression</code>, then <code>Linear Regression</code>. For the dependent variable, select <code>pf_score</code> and for covariates, select <code>pf_expression_control</code>.</p>
+<p>You can use jamovi to fit the linear model (a.k.a. regression line). Click <code>Regression</code>, then <code>Linear Regression</code>. For the dependent variable, select <code>pf_score</code> and for covariates, select <code>pf_expression_control</code>.</p>
 <p>We’re going to focus on the table with the title <code>Model Coefficients</code> for this analysis.</p>
 <p>The <code>Estimate</code> column gives us the value of the linear model’s y-intercept and the coefficient of <code>pf_expression_control</code>. With this table, we can write down the least squares regression line for the linear model:</p>
 <p><span class="math display">\[
@@ -1597,16 +1599,16 @@ div.tocify {
 </ul>
 <p>We can assess model fit using <span class="math inline">\(R^2\)</span>, the proportion of variability in the response variable that is explained by the explanatory variable. We can look in the first table in the Linear Regression analysis, labeled <code>Model Fit Measures</code> for this information.</p>
 <p>For this model, 71.4% of the variability in <code>pf_score</code> is explained by <code>pf_expression_control</code>.</p>
-<ol start="6" style="list-style-type: decimal">
+<ol start="5" style="list-style-type: decimal">
 <li>Fit a new model that uses <code>pf_expression_control</code> to predict <code>hf_score</code>, or the total human freedom score. Using the estimates from the output, write the equation of the regression line. What does the slope tell us in the context of the relationship between human freedom and the amount of political pressure on media content?</li>
 </ol>
 </div>
 <div id="prediction-and-prediction-errors" class="section level2">
 <h2>Prediction and prediction errors</h2>
-<p>Look at a scatter plot for these variables, and make sure the regression line option is set to <code>Linear</code> and not <code>Smooth</code> to ensure that jamovi is using a line to estimate the relationship and not a curved line.</p>
+<p>Look at a scatter plot for these variables, and set the <code>Regression Line</code> option is set to <code>Linear</code>. This will overlay the least-squares regression line over teh scatterplot.</p>
 <p>This line can be used to predict <span class="math inline">\(y\)</span> at any value of <span class="math inline">\(x\)</span>. When predictions are made for values of <span class="math inline">\(x\)</span> that are beyond the range of the observed data, it is referred to as <em>extrapolation</em> and is not usually recommended. However, predictions made within the range of the data are more reliable. They’re also used to compute the residuals.</p>
-<ol start="7" style="list-style-type: decimal">
-<li>If someone saw the least squares regression line and not the actual data, how would they predict a country’s personal freedom school for one with a 3 rating for <code>pf_expression_control</code>? Is this an overestimate or an underestimate, and by how much? In other words, what is the residual for this prediction?</li>
+<ol start="6" style="list-style-type: decimal">
+<li>If someone saw the least squares regression line and not the actual data, how would they predict a country’s personal freedom school for one with a rating of 3 for <code>pf_expression_control</code>?</li>
 </ol>
 </div>
 <div id="model-diagnostics" class="section level2">
@@ -1614,15 +1616,15 @@ div.tocify {
 <p>To assess whether the linear model is reliable, we need to check for (1) linearity, (2) nearly normal residuals, and (3) constant variability.</p>
 <p><strong>Linearity</strong>: You already checked if the relationship between <code>pf_score</code> and <code>pf_expression_control</code> is linear using a scatterplot.</p>
 <p>We should also verify this condition with a plot of the residuals vs. fitted (predicted) values. Go back to the Linear Regression analysis, and open the <code>Assumption Checks</code> submenu. Check the <code>Residual plots</code> box and look at the plots that are created. We will focus on the first one, Residuals vs Fitted.</p>
-<ol start="8" style="list-style-type: decimal">
+<ol start="7" style="list-style-type: decimal">
 <li>Is there any apparent pattern in the residuals plot? What does this indicate about the linearity of the relationship between the two variables?</li>
 </ol>
 <p><strong>Nearly normal residuals</strong>: To check this condition, we can look at a Q-Q plot to inspect the normality of the residuals. Check the <code>Q-Q plot of residuals</code> box to create this plot.</p>
-<ol start="9" style="list-style-type: decimal">
+<ol start="8" style="list-style-type: decimal">
 <li>Based on the Q-Q plot, does the nearly normal residuals condition appear to be violated? Why or why not?</li>
 </ol>
 <p><strong>Constant variability</strong>:</p>
-<ol start="10" style="list-style-type: decimal">
+<ol start="9" style="list-style-type: decimal">
 <li>Based on the residuals vs. fitted plot, does the constant variability condition appear to be violated? Why or why not?</li>
 </ol>
 <hr />
@@ -1631,12 +1633,12 @@ div.tocify {
 <h2>More Practice</h2>
 <div class="oyo">
 
-<ul>
+<ol start="10" style="list-style-type: decimal">
 <li><p>Choose another variable that you think would strongly correlate with <code>pf_score</code>. Produce a scatterplot of the two variables and fit a linear model. At a glance, does there seem to be a linear relationship?</p></li>
 <li><p>How does this relationship compare to the relationship between <code>pf_score</code> and <code>pf_expression_control</code>? Use the <span class="math inline">\(R^2\)</span> values from the two model summaries to compare. Does your independent variable seem to predict <code>pf_score</code> better? Why or why not?</p></li>
 <li><p>Check the model diagnostics using appropriate visualizations and evaluate if the model conditions have been met.</p></li>
 <li><p>Pick another pair of variables of interest and visualize the relationship between them. Do you find the relationship surprising or is it what you expected. Discuss why you were interested in these variables and why you were/were not surprised by the relationship you observed.</p></li>
-</ul>
+</ol>
 <hr />
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjnz7UZMAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAb9QTFRFAAAAAAAA////////////8fHx7+/v6Ofn4+Pj4N/g39/f1tXV09bS0tXS0tXR0dTR0dTQ0NTQ0NPPz9PPztLOztHNzdHNzdHMz8/PzdDMzNDMzNDLzM/Ly8/Ly8/Ky87Kys3Jyc3Jyc3Iy8rLyMzIyMzHx8vHxsrGycjIxsrFxcnFyMfHxcnExMnExMjDw8jDxMfDw8fCwsfCwcXAwMXAwMW/wMS/v8S+v8O+vsO+vsK9vcK9vcK8v7+/vMG8vMG7vMC8u8C7u8C6ur+6ur+5ub65ub64uL23t7y2urm5tru1tbq0tLqztLmzs7iysrixtbW1srexsbewsbawsLavsLWvr7Wur7SusLOvrrStrrOtr7KvrbOsrLKrr6+vq7GqrKuro6Ghn6OenqCdn5+fnp2dn5aalpmWmJaXk5iTkZSRkZORkY+Pj4+PiYyJjoeLhIaEhIWEgoWChIGCgICAfX98fH98eXx5dnN0cHJvcHBwbmxsY19hYGBgXV5dUFFQUFBQQ0RDQEBAPj8+Pzc5NTY1MjMxMDAwMS0uLS0tKSkpKCkoKCgoKicnJCQkIx8gICAgGxsbEBAQDg4ODQ4N9qQJ7gAAAAR0Uk5T/wAKDnDBpeYAAANgSURBVHjatZb7VxJBFMdvNVIR2raFGRCr1FqbihL5TMLM9zPNNE1N0x5KmSZpUShiRUm1uPIHd2dhGd3d4zni8fvLeL5z9uPd78y9C5yBE9EpAOjt6gg2+qslsUxwORwud6koef0Nwfau3oHhp+OTk1Mvji5QuW3NdT7J47bzXKHNVniRt1/3SL7a5jZKHh2fnMqTjNx73nLBzq1spQGV3lrmrrjFKv99JA+OjE5oJa/vAGpnXYcw99HpQK7o5EO7kNPuIu/wVPqb27v6h0ayJS8kAeKRSBwgucCeN/oMHKzzig5uEwCUaDgQCEcVANisueqpqg129GAYaskv9yBmJShrDPYYwegzcKOv3Em5SthCMppHdLLGIfoaWjt7sWQKTkIUdwDoNiQZQPXPVVSc03wG9ksCj9yEleRkSWDNvFvyN2PJT8Ywi3WIXdDAJAa5PFV/VkZ1Z30Grr5pDyE3Wy4jL17xeOtbu/qGRiempnbAynatsKM9T/0K+fu3z7L8LuMzsOTmdkEpIQdkUWCXuy75H3T0DtIsIE7dKKiBkDhoz6Nf8Fr+QMgr+VfGZ2CxeAUgTHSaB1i2i76mNsyCgiPUBBRdIzkA+gX/5D8YsyyfVX0GLru8BQoGEYjF4+HM8h4fVmCLL6VZ9A+PHQomj38HVPB5HVjg0hBFIFDFp4EqSl87fdFdWfuws2949NAoSPfsbUJmZFkfhasIAEtMQMoaSM0n8HpMp+bVLApdkj+IFw7B2cMDMB4exiuvrv6V3+oPz2kDwHdRc84t6hvYHLc0MF4rYn7d0F+VUV8LqH9k8P4GiRga5MbMzAXmG6OwlKTCGAVd9FEcuaXZ4WVPLbvQ/5/mhNzhISEJkIhGEvohZPTZddsEheSu23RcXUgKr1uZt/5R5rrlMzbF4hBmYd4gd5vaewZo5+Uz6O+oLW09pKXzBOMQmjMbQiG7p7oBG48OobzAsCbwG0guYVyrOjaFj3BMfXFd2j/oLWEF4AfnXINj65Pj0obu08RdewMHlekP+ofpBjEnu/i5/R/TEO/UcyGDJUYu2zRLQ7BzIe3zv8jZBczBrDCz57URAqb6+dxdfJkrstmKOPzB8mwbDGJBGES0TVNtL7UILqfTJbQsMax5xUafgU9ep08Ge+o/RyjkZSMkFewAAAAASUVORK5CYII=" style="border-width:0" alt="Creative Commons License" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </div>
