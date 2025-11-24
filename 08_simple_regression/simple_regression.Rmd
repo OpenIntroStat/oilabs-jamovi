@@ -81,14 +81,14 @@ For this model, 71.4% of the variability in `pf_score` is explained by `pf_expre
 
 ## Prediction and prediction errors
 
-Look at a scatter plot for these variables, and set the `Regression Line` option is set to `Linear`.  This will overlay the least-squares regression line over teh scatterplot.
+Look at a scatter plot for these variables, and set the `Regression Line` option is set to `Linear`.  This will overlay the least-squares regression line over the scatterplot.
 
 This line can be used to predict $y$ at any value of $x$.
 When predictions are made for values of $x$ that are beyond the range of the observed data, it is referred to as *extrapolation* and is not usually recommended.
 However, predictions made within the range of the data are more reliable.
 They're also used to compute the residuals.
 
-6.  If someone saw the least squares regression line and not the actual data, how would they predict a country's personal freedom school for one with a rating of 3 for `pf_expression_control`?
+6.  If someone saw the least squares regression line and not the actual data, how would they predict a country's personal freedom score for one with a rating of 3 for `pf_expression_control`?
 
 ## Model diagnostics
 
