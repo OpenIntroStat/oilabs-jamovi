@@ -47,16 +47,14 @@ It's called `evals`, and can be found [here](more/evals.csv). We have observatio
 The fundamental phenomenon suggested by the study is that better looking teachers are evaluated more favourably.
 Let's create a scatterplot to see if this appears to be the case, using `score` as the y-variable and `bty_avg` as the x-variable. 
 
-Before you draw conclusions about the trend, compare the number of observations in the data frame with the approximate number of points on the scatterplot.
-Is anything awry?
+4.  Before you draw conclusions about the trend, compare the number of observations in the data frame with the approximate number of points on the scatterplot.
+Is anything awry?  What was misleading about the initial scatterplot?
 
-4.  What was misleading about the initial scatterplot?
-
-The line is the model. 
+<!-- The line is the model.  -->
 
 <!--The shaded gray area around the line tells you about the variability you might expect in your predictions. To turn that off, uncheck the `Show confidence interval` box in the `Add regression line`.-->
 
-5.  Let's see if the apparent trend in the plot is something more than natural variation. Fit a linear regression model to predict average professor score by average beauty rating. Write out the equation for the linear model and interpret the slope. Is average beauty score a statistically significant predictor? Does it appear to be a practically significant predictor?
+5.  Let's see if the apparent trend in the plot is something more than natural variation. Add the linear regression line to your scatterplot.  Then, fit a linear regression model to predict average professor score by average beauty rating. Write out the equation for the linear model and interpret the slope. Is average beauty score a statistically significant predictor? Does it appear to be a practically significant predictor?
 
 6.  Use residual plots to evaluate whether the conditions of least squares regression are reasonable. Provide plots and comments for each one (see the Simple Regression Lab for a reminder of how to make these).
 
@@ -74,10 +72,7 @@ You can look at the relationships between other beauty variables by creating a s
 These variables are collinear (correlated), and adding more than one of these variables to the model would not add much value to the model.
 In this application and with these highly-correlated predictors, it is reasonable to use the average beauty score as the single representative of these variables.
 
-In order to see if beauty is still a significant predictor of professor score after you've accounted for the professor's gender, you can add the gender term into the model.
-
-
-jamovi will only accept scale variables in the covariate box. (You can  tell this by looking at the bottom corner of the box to see the scale icon.) We can, however, include categorical variables in the model by putting them in the Factors box.
+In order to see if beauty is still a significant predictor of professor score after you've accounted for the professor's gender, we'll create a multiple regression model which uses both gender and average beauty score as predictors.  However, jamovi will only accept numeric variables in the covariate box. (You can tell this by looking at the bottom corner of the "Covariates" box to see the scale icon).  Instead, include the categorical `gender` variables in the model by putting it in the Factors box.
 
 7.  p-values and parameter estimates should only be trusted if the conditions for the regression are reasonable.
     Verify that the conditions for this model are reasonable using diagnostic plots.
