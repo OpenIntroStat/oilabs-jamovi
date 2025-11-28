@@ -1262,6 +1262,22 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -1595,7 +1611,7 @@ In the options, click to highlight `Compute probability`, then replace $x_1$ wit
 <li><p>Come up with a research question evaluating the relationship between height or weight and sleep. Formulate the question in a way that it can be answered using a hypothesis test and/or a confidence interval. Report the statistical results, and also provide an explanation in plain language. Be sure to check all assumptions, state your <span class="math inline">\(\alpha\)</span> level, and conclude in context.</p></li>
 </ol>
 <hr />
-<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjnz7UZMAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAb9QTFRFAAAAAAAA////////////8fHx7+/v6Ofn4+Pj4N/g39/f1tXV09bS0tXS0tXR0dTR0dTQ0NTQ0NPPz9PPztLOztHNzdHNzdHMz8/PzdDMzNDMzNDLzM/Ly8/Ly8/Ky87Kys3Jyc3Jyc3Iy8rLyMzIyMzHx8vHxsrGycjIxsrFxcnFyMfHxcnExMnExMjDw8jDxMfDw8fCwsfCwcXAwMXAwMW/wMS/v8S+v8O+vsO+vsK9vcK9vcK8v7+/vMG8vMG7vMC8u8C7u8C6ur+6ur+5ub65ub64uL23t7y2urm5tru1tbq0tLqztLmzs7iysrixtbW1srexsbewsbawsLavsLWvr7Wur7SusLOvrrStrrOtr7KvrbOsrLKrr6+vq7GqrKuro6Ghn6OenqCdn5+fnp2dn5aalpmWmJaXk5iTkZSRkZORkY+Pj4+PiYyJjoeLhIaEhIWEgoWChIGCgICAfX98fH98eXx5dnN0cHJvcHBwbmxsY19hYGBgXV5dUFFQUFBQQ0RDQEBAPj8+Pzc5NTY1MjMxMDAwMS0uLS0tKSkpKCkoKCgoKicnJCQkIx8gICAgGxsbEBAQDg4ODQ4N9qQJ7gAAAAR0Uk5T/wAKDnDBpeYAAANgSURBVHjatZb7VxJBFMdvNVIR2raFGRCr1FqbihL5TMLM9zPNNE1N0x5KmSZpUShiRUm1uPIHd2dhGd3d4zni8fvLeL5z9uPd78y9C5yBE9EpAOjt6gg2+qslsUxwORwud6koef0Nwfau3oHhp+OTk1Mvji5QuW3NdT7J47bzXKHNVniRt1/3SL7a5jZKHh2fnMqTjNx73nLBzq1spQGV3lrmrrjFKv99JA+OjE5oJa/vAGpnXYcw99HpQK7o5EO7kNPuIu/wVPqb27v6h0ayJS8kAeKRSBwgucCeN/oMHKzzig5uEwCUaDgQCEcVANisueqpqg129GAYaskv9yBmJShrDPYYwegzcKOv3Em5SthCMppHdLLGIfoaWjt7sWQKTkIUdwDoNiQZQPXPVVSc03wG9ksCj9yEleRkSWDNvFvyN2PJT8Ywi3WIXdDAJAa5PFV/VkZ1Z30Grr5pDyE3Wy4jL17xeOtbu/qGRiempnbAynatsKM9T/0K+fu3z7L8LuMzsOTmdkEpIQdkUWCXuy75H3T0DtIsIE7dKKiBkDhoz6Nf8Fr+QMgr+VfGZ2CxeAUgTHSaB1i2i76mNsyCgiPUBBRdIzkA+gX/5D8YsyyfVX0GLru8BQoGEYjF4+HM8h4fVmCLL6VZ9A+PHQomj38HVPB5HVjg0hBFIFDFp4EqSl87fdFdWfuws2949NAoSPfsbUJmZFkfhasIAEtMQMoaSM0n8HpMp+bVLApdkj+IFw7B2cMDMB4exiuvrv6V3+oPz2kDwHdRc84t6hvYHLc0MF4rYn7d0F+VUV8LqH9k8P4GiRga5MbMzAXmG6OwlKTCGAVd9FEcuaXZ4WVPLbvQ/5/mhNzhISEJkIhGEvohZPTZddsEheSu23RcXUgKr1uZt/5R5rrlMzbF4hBmYd4gd5vaewZo5+Uz6O+oLW09pKXzBOMQmjMbQiG7p7oBG48OobzAsCbwG0guYVyrOjaFj3BMfXFd2j/oLWEF4AfnXINj65Pj0obu08RdewMHlekP+ofpBjEnu/i5/R/TEO/UcyGDJUYu2zRLQ7BzIe3zv8jZBczBrDCz57URAqb6+dxdfJkrstmKOPzB8mwbDGJBGES0TVNtL7UILqfTJbQsMax5xUafgU9ep08Ge+o/RyjkZSMkFewAAAAASUVORK5CYII=" alt="Creative Commons License" style="border-width:0" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjnz7UZMAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAb9QTFRFAAAAAAAA////////////8fHx7+/v6Ofn4+Pj4N/g39/f1tXV09bS0tXS0tXR0dTR0dTQ0NTQ0NPPz9PPztLOztHNzdHNzdHMz8/PzdDMzNDMzNDLzM/Ly8/Ly8/Ky87Kys3Jyc3Jyc3Iy8rLyMzIyMzHx8vHxsrGycjIxsrFxcnFyMfHxcnExMnExMjDw8jDxMfDw8fCwsfCwcXAwMXAwMW/wMS/v8S+v8O+vsO+vsK9vcK9vcK8v7+/vMG8vMG7vMC8u8C7u8C6ur+6ur+5ub65ub64uL23t7y2urm5tru1tbq0tLqztLmzs7iysrixtbW1srexsbewsbawsLavsLWvr7Wur7SusLOvrrStrrOtr7KvrbOsrLKrr6+vq7GqrKuro6Ghn6OenqCdn5+fnp2dn5aalpmWmJaXk5iTkZSRkZORkY+Pj4+PiYyJjoeLhIaEhIWEgoWChIGCgICAfX98fH98eXx5dnN0cHJvcHBwbmxsY19hYGBgXV5dUFFQUFBQQ0RDQEBAPj8+Pzc5NTY1MjMxMDAwMS0uLS0tKSkpKCkoKCgoKicnJCQkIx8gICAgGxsbEBAQDg4ODQ4N9qQJ7gAAAAR0Uk5T/wAKDnDBpeYAAANgSURBVHjatZb7VxJBFMdvNVIR2raFGRCr1FqbihL5TMLM9zPNNE1N0x5KmSZpUShiRUm1uPIHd2dhGd3d4zni8fvLeL5z9uPd78y9C5yBE9EpAOjt6gg2+qslsUxwORwud6koef0Nwfau3oHhp+OTk1Mvji5QuW3NdT7J47bzXKHNVniRt1/3SL7a5jZKHh2fnMqTjNx73nLBzq1spQGV3lrmrrjFKv99JA+OjE5oJa/vAGpnXYcw99HpQK7o5EO7kNPuIu/wVPqb27v6h0ayJS8kAeKRSBwgucCeN/oMHKzzig5uEwCUaDgQCEcVANisueqpqg129GAYaskv9yBmJShrDPYYwegzcKOv3Em5SthCMppHdLLGIfoaWjt7sWQKTkIUdwDoNiQZQPXPVVSc03wG9ksCj9yEleRkSWDNvFvyN2PJT8Ywi3WIXdDAJAa5PFV/VkZ1Z30Grr5pDyE3Wy4jL17xeOtbu/qGRiempnbAynatsKM9T/0K+fu3z7L8LuMzsOTmdkEpIQdkUWCXuy75H3T0DtIsIE7dKKiBkDhoz6Nf8Fr+QMgr+VfGZ2CxeAUgTHSaB1i2i76mNsyCgiPUBBRdIzkA+gX/5D8YsyyfVX0GLru8BQoGEYjF4+HM8h4fVmCLL6VZ9A+PHQomj38HVPB5HVjg0hBFIFDFp4EqSl87fdFdWfuws2949NAoSPfsbUJmZFkfhasIAEtMQMoaSM0n8HpMp+bVLApdkj+IFw7B2cMDMB4exiuvrv6V3+oPz2kDwHdRc84t6hvYHLc0MF4rYn7d0F+VUV8LqH9k8P4GiRga5MbMzAXmG6OwlKTCGAVd9FEcuaXZ4WVPLbvQ/5/mhNzhISEJkIhGEvohZPTZddsEheSu23RcXUgKr1uZt/5R5rrlMzbF4hBmYd4gd5vaewZo5+Uz6O+oLW09pKXzBOMQmjMbQiG7p7oBG48OobzAsCbwG0guYVyrOjaFj3BMfXFd2j/oLWEF4AfnXINj65Pj0obu08RdewMHlekP+ofpBjEnu/i5/R/TEO/UcyGDJUYu2zRLQ7BzIe3zv8jZBczBrDCz57URAqb6+dxdfJkrstmKOPzB8mwbDGJBGES0TVNtL7UILqfTJbQsMax5xUafgU9ep08Ge+o/RyjkZSMkFewAAAAASUVORK5CYII=" style="border-width:0" alt="Creative Commons License" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 </div>
 
 
