@@ -1574,14 +1574,13 @@ div.tocify {
 <div id="simple-linear-regression" class="section level2">
 <h2>Simple linear regression</h2>
 <p>The fundamental phenomenon suggested by the study is that better looking teachers are evaluated more favourably. Let’s create a scatterplot to see if this appears to be the case, using <code>score</code> as the y-variable and <code>bty_avg</code> as the x-variable.</p>
-<p>Before you draw conclusions about the trend, compare the number of observations in the data frame with the approximate number of points on the scatterplot. Is anything awry?</p>
 <ol start="4" style="list-style-type: decimal">
-<li>What was misleading about the initial scatterplot?</li>
+<li>Before you draw conclusions about the trend, compare the number of observations in the data frame with the approximate number of points on the scatterplot. Is anything awry? What was misleading about the initial scatterplot?</li>
 </ol>
-<p>The line is the model.</p>
+<!-- The line is the model.  -->
 <!--The shaded gray area around the line tells you about the variability you might expect in your predictions. To turn that off, uncheck the `Show confidence interval` box in the `Add regression line`.-->
 <ol start="5" style="list-style-type: decimal">
-<li><p>Let’s see if the apparent trend in the plot is something more than natural variation. Fit a linear regression model to predict average professor score by average beauty rating. Write out the equation for the linear model and interpret the slope. Is average beauty score a statistically significant predictor? Does it appear to be a practically significant predictor?</p></li>
+<li><p>Let’s see if the apparent trend in the plot is something more than natural variation. Add the linear regression line to your scatterplot. Then, fit a linear regression model to predict average professor score by average beauty rating. Write out the equation for the linear model and interpret the slope. Is average beauty score a statistically significant predictor? Does it appear to be a practically significant predictor?</p></li>
 <li><p>Use residual plots to evaluate whether the conditions of least squares regression are reasonable. Provide plots and comments for each one (see the Simple Regression Lab for a reminder of how to make these).</p></li>
 </ol>
 </div>
@@ -1592,8 +1591,7 @@ div.tocify {
 <p>As expected, the relationship is quite strong—after all, the average score is calculated using the individual scores.</p>
 <p>You can look at the relationships between other beauty variables by creating a scatterplot for various pairs of the beauty variables (the ones that start with “bty”). Pick a few pairs to look at how they are related.</p>
 <p>These variables are collinear (correlated), and adding more than one of these variables to the model would not add much value to the model. In this application and with these highly-correlated predictors, it is reasonable to use the average beauty score as the single representative of these variables.</p>
-<p>In order to see if beauty is still a significant predictor of professor score after you’ve accounted for the professor’s gender, you can add the gender term into the model.</p>
-<p>jamovi will only accept scale variables in the covariate box. (You can tell this by looking at the bottom corner of the box to see the scale icon.) We can, however, include categorical variables in the model by putting them in the Factors box.</p>
+<p>In order to see if beauty is still a significant predictor of professor score after you’ve accounted for the professor’s gender, we’ll create a multiple regression model which uses both gender and average beauty score as predictors. However, jamovi will only accept numeric variables in the covariate box. (You can tell this by looking at the bottom corner of the “Covariates” box to see the scale icon). Instead, include the categorical <code>gender</code> variables in the model by putting it in the Factors box.</p>
 <ol start="7" style="list-style-type: decimal">
 <li><p>p-values and parameter estimates should only be trusted if the conditions for the regression are reasonable. Verify that the conditions for this model are reasonable using diagnostic plots.</p></li>
 <li><p>Is <code>bty_avg</code> still a significant predictor of <code>score</code>? Has the addition of <code>gender</code> to the model changed the parameter estimate for <code>gender</code>?</p></li>
