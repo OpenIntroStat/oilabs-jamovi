@@ -1594,7 +1594,7 @@ div.tocify {
 <p>In order to see if beauty is still a significant predictor of professor score after you’ve accounted for the professor’s gender, we’ll create a multiple regression model which uses both gender and average beauty score as predictors. However, jamovi will only accept numeric variables in the covariate box. (You can tell this by looking at the bottom corner of the “Covariates” box to see the scale icon). Instead, include the categorical <code>gender</code> variables in the model by putting it in the Factors box.</p>
 <ol start="7" style="list-style-type: decimal">
 <li><p>p-values and parameter estimates should only be trusted if the conditions for the regression are reasonable. Verify that the conditions for this model are reasonable using diagnostic plots.</p></li>
-<li><p>Is <code>bty_avg</code> still a significant predictor of <code>score</code>? Has the addition of <code>gender</code> to the model changed the parameter estimate for <code>gender</code>?</p></li>
+<li><p>Is <code>bty_avg</code> still a significant predictor of <code>score</code>? Has the addition of <code>gender</code> to the model changed the parameter estimate for <code>bty_average</code>?</p></li>
 </ol>
 <p>In the model coefficients table, we can see a note by intercept that the values represents the reference level. This means that this is the value for the reference level (female), and the value next to <code>male-female</code> is the change in the intercept comparing males to females.</p>
 <p>Another way to think of this is to think of the coefficient for <code>male-female</code> for female professors is multiplied by zero, leaving the intercept and slope form familiar from simple regression:</p>
