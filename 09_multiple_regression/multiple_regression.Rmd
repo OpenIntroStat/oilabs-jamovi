@@ -78,7 +78,7 @@ In order to see if beauty is still a significant predictor of professor score af
     Verify that the conditions for this model are reasonable using diagnostic plots.
 
 8.  Is `bty_avg` still a significant predictor of `score`?
-    Has the addition of `gender` to the model changed the parameter estimate for `gender`?
+    Has the addition of `gender` to the model changed the parameter estimate for `bty_average`?
 
 In the model coefficients table, we can see a note by intercept that the values represents the reference level. This means that this is the value for the reference level (female), and the value next to `male-female` is the change in the intercept comparing males to females. 
 
